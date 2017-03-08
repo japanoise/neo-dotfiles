@@ -1,0 +1,13 @@
+#!/bin/sh
+if [ -z "$DISPLAY" ]
+then
+    SPEFLAGS="-nw"
+else
+    SPEFLAGS="-c"
+fi
+
+if ! pgrep -u $(whoami) emacs; then
+    emacs --daemon
+fi
+
+exec emacsclient $SPEFLAGS $*
