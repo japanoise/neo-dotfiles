@@ -12,7 +12,7 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'r:|[._-]=* r
 zstyle ':completion:*' menu select=1
 zstyle ':completion:*' original true
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-zstyle :compinstall filename '/home/chameleon/.zshrc'
+zstyle :compinstall filename "$HOME/.zshrc"
 
 compinit
 HISTFILE=~/.histfile
