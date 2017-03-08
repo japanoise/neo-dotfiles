@@ -76,7 +76,7 @@ pastebin () {
     fi | curl -F 'sprunge=<-' http://sprunge.us
 }
 uguu(){
-	curl -i -F name="$1" -F file=@"$1" https://uguu.se/api.php?d=upload-tool
+	curl -i -F name="$1" -F file=@"$1" https://lewd.se/api.php?d=upload-tool
 	printf "\n"
 }
 alias ls="ls --color"
