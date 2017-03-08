@@ -19,7 +19,7 @@ mkdir -pv "$HOME/repos"
 mkdir -pv "$HOME/bin"
 
 message "Checking dependencies..."
-DEPS="git zsh emacs emacsclient"
+DEPS="git zsh emacs emacsclient fortune"
 for DEP in $DEPS
 do
 	dependency "$DEP"
@@ -38,6 +38,12 @@ fi
 cp -v dotfiles/.zshrc "$HOME/.zshrc"
 echo "Changing shell to $(which zsh) (password required)"
 chsh -s "$(which zsh)"
+
+message "Installing fortune files..."
+git clone https://github.com/japanoise/textfiles "$HOME/repos/textfiles"
+cd "$HOME/repos/textfiles/fortunes"
+sudo ./install.sh
+cd -
 
 message "Installing scripts..."
 cp -v bin/* "$HOME/bin"
