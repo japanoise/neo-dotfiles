@@ -19,7 +19,7 @@ mkdir -pv "$HOME/repos"
 mkdir -pv "$HOME/bin"
 
 message "Checking dependencies..."
-DEPS="git zsh emacs emacsclient fortune"
+DEPS="git zsh emacs emacsclient fortune curl"
 for DEP in $DEPS
 do
 	dependency "$DEP"
