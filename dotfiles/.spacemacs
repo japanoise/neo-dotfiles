@@ -313,6 +313,7 @@ you should place your code here."
   (setq c-default-style "linux")
   (add-hook 'c-mode-hook
       (lambda () (setq indent-tabs-mode t)))
+  (define-key evil-hybrid-state-map (kbd "C-%") 'evil-jump-item)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
