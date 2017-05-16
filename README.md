@@ -5,6 +5,19 @@ is full of now useless crap.
 
 Run install.sh. (shellcheck returns only 1 useless warning)
 
+For contributing, this will get the pre-commit hook set up:
+
+```
+#install shellcheck
+emerge shellcheck
+#install pre-commit
+pip install pre-commit
+#get into the repo
+cd path/to/repo
+#install hook(s)
+pre-commit install
+```
+
 ## Copying
 
 Except dotfiles/.spacemacs, which is heavily based on the default spacemacs
