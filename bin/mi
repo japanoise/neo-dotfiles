@@ -1,0 +1,7 @@
+#!/bin/sh
+if [ "$(tput colors)" = "256" ]
+then
+	micro $*
+else
+	micro -colorscheme simple $*
+fi

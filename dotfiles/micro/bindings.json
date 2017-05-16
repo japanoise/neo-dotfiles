@@ -1,0 +1,8 @@
+{
+	"Alt-d": "DeleteWordRight",
+	"Alt-Backspace": "DeleteWordLeft",
+	"Alt-2": "HSplit",
+	"Alt-3": "VSplit",
+	"Alt-1": "Unsplit",
+	"CtrlUnderscore": "Undo"
+}

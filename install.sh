@@ -19,7 +19,7 @@ mkdir -pv "$HOME/repos"
 mkdir -pv "$HOME/bin"
 
 message "Checking dependencies..."
-DEPS="git zsh emacs emacsclient fortune curl"
+DEPS="git zsh emacs emacsclient fortune curl make"
 for DEP in $DEPS
 do
 	dependency "$DEP"
@@ -60,3 +60,16 @@ else
 	git clone https://github.com/syl20bnr/spacemacs "$HOME/.emacs.d"
 	cp -v dotfiles/.spacemacs "$HOME/.spacemacs"
 fi
+
+message "Installing micro..."
+if ! which micro
+then
+	message "Compiling micro from source..."
+	(
+	go get -d github.com/zyedidia/micro/...
+	cd "$GOPATH/src/github.com/zyedidia/micro"
+	make install
+	)
+fi
+mkdir -pv "$HOME/.config/micro"
+cp -v -R -n dotfiles/micro/* "$HOME/.config/micro/"
