@@ -32,7 +32,7 @@ ln -v -s "$HOME/builds/pure/pure.zsh" "$HOME/.zfunctions/prompt_pure_setup"
 ln -v -s "$HOME/builds/pure/async.zsh" "$HOME/.zfunctions/async"
 if [ ! -f "$HOME/.zshrc-local" ]
 then
-	echo 'export PATH=$PATH:'"$HOME"'/bin/' >> "$HOME/.zshrc-local"
+	echo "export PATH=\$PATH:$HOME/bin/" >> "$HOME/.zshrc-local"
 	echo 'fortune login' >> "$HOME/.zshrc-local"
 fi
 cp -v dotfiles/.zshrc "$HOME/.zshrc"
