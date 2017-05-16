@@ -7,7 +7,7 @@ Run install.sh. (shellcheck returns only 1 useless warning)
 
 For contributing, this will get the pre-commit hook set up:
 
-```
+```shell
 #install shellcheck
 emerge shellcheck
 #install pre-commit
