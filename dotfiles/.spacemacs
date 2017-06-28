@@ -44,7 +44,7 @@ values."
      auto-completion
      ;; better-defaults
      emacs-lisp
-     ;; git
+     git
      markdown
      org
      (shell :variables
@@ -298,6 +298,7 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  (setq exec-path-from-shell-check-startup-files nil)
   )
 
 (defun dotspacemacs/user-config ()
@@ -315,8 +316,14 @@ you should place your code here."
   (setq c-default-style "linux")
   (add-hook 'c-mode-hook
       (lambda () (setq indent-tabs-mode t)))
-  (define-key evil-hybrid-state-map (kbd "C-%") 'evil-jump-item)
-  (setq evil-emacs-state-cursor '("chartreuse3" (bar . 2)))
+  (define-key evil-emacs-state-map (kbd "C-%") 'evil-jump-item)
+  (setq evil-emacs-state-cursor '("cyan" (bar . 2)))
+  (setq blink-cursor-blinks 0)
+  (blink-cursor-mode)
+  (spacemacs/toggle-spelling-checking-on)
+  (add-hook 'markdown-mode-hook
+            (lambda () (spacemacs/toggle-spelling-checking-on)))
+  ;; (setq-default cursor-type '(hbar . 1))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
