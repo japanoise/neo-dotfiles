@@ -1,3 +1,6 @@
+# Make M-DEL and friends a bit more useful
+WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+
 fpath=( "$HOME/.zfunctions" $fpath )
 # Various fixes/magic
 autoload -U promptinit && promptinit
@@ -83,4 +86,5 @@ alias ls="ls --color"
 alias l="ls -l"
 alias lh="ls -lh"
 alias adb="sudo adb"
+alias em="gomacs"
 if [ -f ~/.zshrc-local ]; then source ~/.zshrc-local; fi #put machine-specific path, aliases etc. here
