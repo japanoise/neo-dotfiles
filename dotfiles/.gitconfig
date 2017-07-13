@@ -1,0 +1,23 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+#	name = name
+#	email = name@address.tld
+[alias]
+	co = checkout
+	ri = rebase -i
+	rc = rebase --continue
+	st = status
+	ws = rebase --whitespace=fix
+	cg = config --global
+	logo = log --oneline --decorate
+	base = merge-base HEAD HEAD@{u}
+	lob = !git log --oneline --decorate --first-parent `git base`^..
+	cf = config
+	br = branch
+	ci = commit
+	logob = log --oneline --decorate --first-parent
+	logog = log --graph --oneline --decorate
+	diffs = diff --staged
+        unpushed = !GIT_CURRENT_BRANCH=$(git name-rev --name-only HEAD) && git log origin/$GIT_CURRENT_BRANCH..$GIT_CURRENT_BRANCH --oneline
+	mr = !dev/git/reviewed-by.sh
