@@ -10,5 +10,6 @@
 	"CtrlA": "StartOfLine",
 	"Alt-<": "CursorStart",
 	"Alt->": "CursorEnd",
-	"Alt-g": "JumpLine"
+	"Alt-g": "JumpLine",
+	"CtrlZ": "Suspend"
 }
