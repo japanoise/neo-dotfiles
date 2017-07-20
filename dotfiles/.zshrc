@@ -87,4 +87,6 @@ alias l="ls -l"
 alias lh="ls -lh"
 alias adb="sudo adb"
 alias em="gomacs"
+alias gti="git"
+alias gam='VISUAL=/bin/true git commit --amend'
 if [ -f ~/.zshrc-local ]; then source ~/.zshrc-local; fi #put machine-specific path, aliases etc. here
