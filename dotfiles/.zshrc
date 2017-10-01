@@ -1,3 +1,6 @@
+# Fix for tramp - see https://www.emacswiki.org/emacs/TrampMode#toc9
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
+
 # Make M-DEL and friends a bit more useful
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
