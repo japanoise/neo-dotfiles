@@ -92,4 +92,6 @@ alias adb="sudo adb"
 alias em="gomacs"
 alias gti="git"
 alias gam='VISUAL=/bin/true git commit --amend'
+# gomacs doesn't support the +ln syntax, so simplify LESSEDIT
+export LESSEDIT="%E %f"
 if [ -f ~/.zshrc-local ]; then source ~/.zshrc-local; fi #put machine-specific path, aliases etc. here
