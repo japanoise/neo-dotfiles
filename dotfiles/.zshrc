@@ -1,3 +1,9 @@
+# Add $HOME/bin into the path - do this first so it'll be available in tramp.
+if [[ "$PATH" != *"$HOME/bin"* ]]
+then
+	export PATH="$PATH:$HOME/bin"
+fi
+
 # Fix for tramp - see https://www.emacswiki.org/emacs/TrampMode#toc9
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
 
