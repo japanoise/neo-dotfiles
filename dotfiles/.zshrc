@@ -79,6 +79,11 @@ prompt pure
 RPROMPT=$'%(?..%{$fg_bold[red]%}%?%{$reset_color%})'
 # Nice aliases and functions
 stty -ixon
+# Ubuntu - if command_not_found is installed, this helps us find packages for
+# commands we don't yet have installed.
+if [[ -s '/etc/zsh_command_not_found' ]]; then
+    source '/etc/zsh_command_not_found'
+fi
 pastebin () {
     if [ "$*" ]; then
         local prompt="$(PS1="$PS1" bash -i <<<$'\nexit' 2>&1 | head -n1)"
