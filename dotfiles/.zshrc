@@ -96,6 +96,15 @@ uguu(){
 	curl -i -F name="$1" -F file=@"$1" https://lewd.se/api.php?d=upload-tool
 	printf "\n"
 }
+man() {
+	# First line: reverse-video for status line
+	# Second line: blue for titles
+	# Third line: cyan underline for highlights
+	LESS_TERMCAP_se=$(printf "\e[0m") LESS_TERMCAP_so=$(printf "\e[1;7m") \
+	LESS_TERMCAP_mb=$(printf "\e[1;34m") LESS_TERMCAP_md=$(printf "\e[1;34m") LESS_TERMCAP_me=$(printf "\e[0m")\
+	LESS_TERMCAP_us=$(printf "\e[4;32m") LESS_TERMCAP_ue=$(printf "\e[0m") \
+	man $@
+}
 alias ls="ls --color"
 alias l="ls -l"
 alias lh="ls -lh"
