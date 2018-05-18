@@ -112,6 +112,10 @@ alias adb="sudo adb"
 alias em="gomacs"
 alias gti="git"
 alias gam='VISUAL=/bin/true git commit --amend'
+alias prettyjson='python -m json.tool'
+jsonfmt() {
+    prettyjson < "$1" | sponge "$1"
+}
 # gomacs doesn't support the +ln syntax, so simplify LESSEDIT
 export LESSEDIT="%E %f"
 if [ -f ~/.zshrc-local ]; then source ~/.zshrc-local; fi #put machine-specific path, aliases etc. here
