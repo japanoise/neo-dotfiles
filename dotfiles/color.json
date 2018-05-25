@@ -20,7 +20,7 @@
     "Field_editor_invalid_bg": 125,
     "Field_editor_invalid_fg": 248,
     "About_logo_bg": 125,
-    "Filled_bit_rune": 9726,
-    "Empty_bit_rune": 9725,
+    "Filled_bit_rune": 49,
+    "Empty_bit_rune": 48,
     "Space_rune": 8226
 }
