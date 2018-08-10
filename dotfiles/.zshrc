@@ -113,6 +113,7 @@ alias em="gomacs"
 alias gti="git"
 alias gam='VISUAL=/bin/true git commit --amend'
 alias prettyjson='python -m json.tool'
+alias wg="wordgrinder"
 jsonfmt() {
     prettyjson < "$1" | sponge "$1"
 }
