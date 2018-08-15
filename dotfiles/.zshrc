@@ -112,12 +112,17 @@ alias adb="sudo adb"
 alias em="gomacs"
 alias gti="git"
 alias gam='VISUAL=/bin/true git commit --amend'
-alias prettyjson='python -m json.tool'
+alias prettyjson='jq .'
 alias wg="wordgrinder"
+jsonvalid() {
+    jq . < "$1" >/dev/null
+}
 jsonfmt() {
+    jsonvalid "$1" || return 1
     prettyjson < "$1" | sponge "$1"
 }
 minjson() {
+    jsonvalid "$1" || return 1
     jq -c . < "$1" | sponge "$1"
 }
 bak() {
