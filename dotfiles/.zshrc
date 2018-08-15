@@ -120,6 +120,21 @@ jsonfmt() {
 minjson() {
     jq -c . < "$1" | sponge "$1"
 }
+bak() {
+    for arg in "$@"
+    do
+	mv -v "$arg"{,.bak}
+    done
+}
+unbak() {
+    for arg in "$@"
+    do
+	case "$arg" in
+	    *.bak) mv -v "$arg" $(basename -s.bak $arg);;
+	    *) mv -v "$arg"{.bak,};;
+	esac
+    done
+}
 # gomacs doesn't support the +ln syntax, so simplify LESSEDIT
 export LESSEDIT="%E %f"
 if [ -f ~/.zshrc-local ]; then source ~/.zshrc-local; fi #put machine-specific path, aliases etc. here
