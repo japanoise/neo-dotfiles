@@ -118,12 +118,18 @@ jsonvalid() {
     jq . < "$1" >/dev/null
 }
 jsonfmt() {
-    jsonvalid "$1" || return 1
-    prettyjson < "$1" | sponge "$1"
+    for arg in "$@"
+    do
+	jsonvalid "$arg" || return 1
+	prettyjson < "$arg" | sponge "$arg"
+    done
 }
 minjson() {
-    jsonvalid "$1" || return 1
-    jq -c . < "$1" | sponge "$1"
+    for arg in "$@"
+    do
+	jsonvalid "$arg" || return 1
+	jq -c . < "$arg" | sponge "$arg"
+    done
 }
 bak() {
     for arg in "$@"
