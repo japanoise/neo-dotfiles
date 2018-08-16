@@ -4,6 +4,23 @@ fatal() {
 	exit $2
 }
 
+COW="kona1"
+FRAME="unicode"
+
+usage() {
+	cat <<EOF
+$0 [args] [message]
+	-b - select frame; list for list, default $FRAME
+	-f - cowfile to use, default $COW
+	-l - list cowfiles
+	-e - eyes to use
+	-t - tongue to use
+	-W - width of tongue
+	-h - print this message and exit
+EOF
+	exit 0
+}
+
 FRAMENW="┌"
 FRAMENE="┐"
 FRAMESW="└"
@@ -18,10 +35,7 @@ THOUGHTS="╲"
 LINES=1
 TWIDTH=0
 
-COW="kona1"
-FRAME="unicode"
-
-while getopts W:b:f:e:t:l o
+while getopts W:b:f:e:t:lh o
 do
 	case "$o" in
 		b) FRAME="$OPTARG";;
@@ -31,6 +45,7 @@ do
 		e) EYES="$OPTARG";;
 		t) TONGUE="$OPTARG";;
 		W) TWIDTH="$OPTARG";;
+		h) usage;;
 	esac
 done
 shift $((OPTIND-1))
