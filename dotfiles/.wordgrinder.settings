@@ -1,0 +1,9 @@
+WordGrinder dumpfile v3: this is a text file; diff me!
+.globalSettings.debug.currentword: false
+.globalSettings.debug.location: false
+.globalSettings.debug.memory: false
+.globalSettings.lookandfeel.denseparagraphs: false
+.globalSettings.lookandfeel.enabled: true
+.globalSettings.lookandfeel.maxwidth: 100
+.globalSettings.lookandfeel.terminators: true
+.globalSettings.systemdictionary.filename: "/etc/dictionaries-common/words"
