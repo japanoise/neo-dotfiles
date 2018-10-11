@@ -114,6 +114,7 @@ alias gti="git"
 alias gam='VISUAL=/bin/true git commit --amend'
 alias prettyjson='jq .'
 alias wg="wordgrinder"
+alias tb="nc termbin.com 9999"
 jsonvalid() {
     jq . < "$1" >/dev/null
 }
@@ -146,7 +147,16 @@ unbak() {
 	esac
     done
 }
+findbyshebang() {
+	if [ -z "$1" ] || [ -z "$2" ]
+	then
+		echo "Usage: $0 <path> <filetype>" >&2
+		return 1
+	fi
+	find "$1" -type f -exec awk '
+	  /^#!.*\/'"$2"'/{print FILENAME}
+	  {nextfile}' {} +
+}
 # gomacs doesn't support the +ln syntax, so simplify LESSEDIT
 export LESSEDIT="%E %f"
 if [ -f ~/.zshrc-local ]; then source ~/.zshrc-local; fi #put machine-specific path, aliases etc. here
-alias tb="nc termbin.com 9999"
