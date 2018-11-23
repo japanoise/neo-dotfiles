@@ -115,6 +115,7 @@ alias gam='VISUAL=/bin/true git commit --amend'
 alias prettyjson='jq .'
 alias wg="wordgrinder"
 alias tb="nc termbin.com 9999"
+alias fastmake="make -j$(($(nproc) + 1))"
 jsonvalid() {
     jq . < "$1" >/dev/null
 }
