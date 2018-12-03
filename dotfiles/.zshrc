@@ -75,6 +75,13 @@ bindkey "${terminfo[kbs]}" backward-delete-char                     # [Backspace
 bindkey  '^[[3~' delete-char            # [Delete] - delete forward
 PS2="%{$fg[yellow]%}%_ %{%B$fg[blue]%b%}>%{$reset_color%}"
 autoload -U promptinit; promptinit
+if [ "$TERM" = "linux" ]
+then
+	PURE_PROMPT_SYMBOL='>'
+	PURE_PROMPT_VICMD_SYMBOL='<'
+	PURE_GIT_DOWN_ARROW='V'
+	PURE_GIT_UP_ARROW='^'
+fi
 prompt pure
 RPROMPT=$'%(?..%{$fg_bold[red]%}%?%{$reset_color%})'
 # Nice aliases and functions
