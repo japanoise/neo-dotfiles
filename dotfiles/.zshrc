@@ -84,6 +84,7 @@ then
 fi
 prompt pure
 RPROMPT=$'%(?..%{$fg_bold[red]%}%?%{$reset_color%})'
+
 # Nice aliases and functions
 stty -ixon
 # Ubuntu - if command_not_found is installed, this helps us find packages for
@@ -91,6 +92,7 @@ stty -ixon
 if [[ -s '/etc/zsh_command_not_found' ]]; then
     source '/etc/zsh_command_not_found'
 fi
+
 pastebin () {
     if [ "$*" ]; then
         local prompt="$(PS1="$PS1" bash -i <<<$'\nexit' 2>&1 | head -n1)"
@@ -99,10 +101,12 @@ pastebin () {
         cat
     fi | curl -F 'sprunge=<-' http://sprunge.us
 }
+
 uguu(){
 	curl -i -F name="$1" -F file=@"$1" https://lewd.se/api.php?d=upload-tool
 	printf "\n"
 }
+
 man() {
 	# First line: reverse-video for status line
 	# Second line: blue for titles
@@ -112,6 +116,7 @@ man() {
 	LESS_TERMCAP_us=$(printf "\e[4;36m") LESS_TERMCAP_ue=$(printf "\e[0m") \
 	/usr/bin/man "$@"
 }
+
 alias ls="ls --color"
 alias l="ls -l"
 alias lh="ls -lh"
@@ -125,12 +130,15 @@ alias tb="nc termbin.com 9999"
 export MAKEFLAGS=-j$(($(nproc) + 1))
 # in case that doesn't work:
 alias fastmake="make -j$(($(nproc) + 1))"
+
 mkcd() {
 	mkdir "$1" && cd "$1"
 }
+
 jsonvalid() {
     jq . < "$1" >/dev/null
 }
+
 jsonfmt() {
     for arg in "$@"
     do
@@ -138,6 +146,7 @@ jsonfmt() {
 	prettyjson < "$arg" | sponge "$arg"
     done
 }
+
 minjson() {
     for arg in "$@"
     do
@@ -145,12 +154,14 @@ minjson() {
 	jq -c . < "$arg" | sponge "$arg"
     done
 }
+
 bak() {
     for arg in "$@"
     do
 	mv -v "$arg"{,.bak}
     done
 }
+
 unbak() {
     for arg in "$@"
     do
@@ -160,6 +171,7 @@ unbak() {
 	esac
     done
 }
+
 findbyshebang() {
 	if [ -z "$1" ] || [ -z "$2" ]
 	then
