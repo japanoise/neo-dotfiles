@@ -73,8 +73,23 @@ bindkey '^[[1;5D' backward-word                       # [Ctrl-LeftArrow] - move 
 
 bindkey "${terminfo[kbs]}" backward-delete-char                     # [Backspace] - delete backward
 bindkey  '^[[3~' delete-char            # [Delete] - delete forward
-PS2="%{$fg[yellow]%}%_ %{%B$fg[blue]%b%}>%{$reset_color%}"
+
+# Get "plugins" and such installed
+if ! prompt -l | grep -q pure
+then
+	mkdir -pv "$HOME/.zfunctions"
+	git clone https://github.com/sindresorhus/pure "$HOME/builds/pure"
+	ln -v -s "$HOME/builds/pure/pure.zsh" "$HOME/.zfunctions/prompt_pure_setup"
+	ln -v -s "$HOME/builds/pure/async.zsh" "$HOME/.zfunctions/async"
+fi
+if [ ! -d $HOME/builds/zsh-syntax-highlighting ]
+then
+	git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME/builds/zsh-syntax-highlighting"
+fi
+
+# Setup prompt
 autoload -U promptinit; promptinit
+PS2="%{$fg[yellow]%}%_ %{%B$fg[blue]%b%}>%{$reset_color%}"
 if [ "$TERM" = "linux" ]
 then
 	PURE_PROMPT_SYMBOL='>'
@@ -182,6 +197,9 @@ findbyshebang() {
 	  /^#!.*\/'"$2"'/{print FILENAME}
 	  {nextfile}' {} +
 }
+
 # gomacs doesn't support the +ln syntax, so simplify LESSEDIT
 export LESSEDIT="%E %f"
 if [ -f ~/.zshrc-local ]; then source ~/.zshrc-local; fi #put machine-specific path, aliases etc. here
+# Upstream will whinge if this isn't last ;)
+source "$HOME/builds/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
