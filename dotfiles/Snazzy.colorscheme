@@ -89,6 +89,7 @@ Color=220,230,231
 Color=237,237,236
 
 [General]
+Blur=false
 Description=Snazzy
-Opacity=1
+Opacity=0.75
 Wallpaper=
