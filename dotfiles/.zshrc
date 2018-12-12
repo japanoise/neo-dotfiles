@@ -200,6 +200,13 @@ findbyshebang() {
 	  {nextfile}' {} +
 }
 
+pass() {
+	case $1 in
+		pull) rsync -u -h --progress anubis:~/Passwords.kdbx "$HOME"/Passwords.kdbx;;
+		push) rsync -u -h --progress "$HOME"/Passwords.kdbx anubis:~/Passwords.kdbx;;
+	esac
+}
+
 # gomacs doesn't support the +ln syntax, so simplify LESSEDIT
 export LESSEDIT="%E %f"
 if [ -f ~/.zshrc-local ]; then source ~/.zshrc-local; fi #put machine-specific path, aliases etc. here
