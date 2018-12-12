@@ -1,3 +1,5 @@
+# -*- indent-tabs-mode: t; sh-indentation: 8; sh-basic-offset: 8; -*-
+
 # Add $HOME/bin into the path - do this first so it'll be available in tramp.
 if [[ "$PATH" != *"$HOME/bin"* ]]
 then
