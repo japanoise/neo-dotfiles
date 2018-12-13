@@ -37,14 +37,14 @@ unsetopt beep extendedglob nomatch notify
 # Keys - oh-my-zsh + modifications
 # includes home and end :^)
 if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
-  function zle-line-init() {
-    echoti smkx
-  }
-  function zle-line-finish() {
-    echoti rmkx
-  }
-  zle -N zle-line-init
-  zle -N zle-line-finish
+	function zle-line-init() {
+		echoti smkx
+	}
+	function zle-line-finish() {
+		echoti rmkx
+	}
+	zle -N zle-line-init
+	zle -N zle-line-finish
 fi
 
 bindkey -e                                            # Use emacs key bindings
@@ -54,18 +54,18 @@ bindkey '^r' history-incremental-search-backward      # [Ctrl-r] - Search backwa
 # I don't like fuzzyfind so I've removed it
 # [Up-Arrow] - history up
 if [[ "${terminfo[kcuu1]}" != "" ]]; then
-  bindkey "${terminfo[kcuu1]}" up-line-or-history
+	bindkey "${terminfo[kcuu1]}" up-line-or-history
 fi
 # [Down-Arrow] - history down
 if [[ "${terminfo[kcud1]}" != "" ]]; then
-  bindkey "${terminfo[kcud1]}" down-line-or-history
+	bindkey "${terminfo[kcud1]}" down-line-or-history
 fi
 
 if [[ "${terminfo[khome]}" != "" ]]; then
-  bindkey "${terminfo[khome]}" beginning-of-line      # [Home] - Go to beginning of line
+	bindkey "${terminfo[khome]}" beginning-of-line      # [Home] - Go to beginning of line
 fi
 if [[ "${terminfo[kend]}" != "" ]]; then
-  bindkey "${terminfo[kend]}"  end-of-line            # [End] - Go to end of line
+	bindkey "${terminfo[kend]}"  end-of-line            # [End] - Go to end of line
 fi
 
 bindkey ' ' magic-space                               # [Space] - do history expansion
@@ -107,16 +107,16 @@ stty -ixon
 # Ubuntu - if command_not_found is installed, this helps us find packages for
 # commands we don't yet have installed.
 if [[ -s '/etc/zsh_command_not_found' ]]; then
-    source '/etc/zsh_command_not_found'
+	source '/etc/zsh_command_not_found'
 fi
 
 pastebin () {
-    if [ "$*" ]; then
-        local prompt="$(PS1="$PS1" bash -i <<<$'\nexit' 2>&1 | head -n1)"
-        ( echo "$(sed 's/\o033\[[0-9]*;[0-9]*m//g'  <<<"$prompt")$@"; exec $@; )
-    else
-        cat
-    fi | curl -F 'sprunge=<-' http://sprunge.us
+	if [ "$*" ]; then
+		local prompt="$(PS1="$PS1" bash -i <<<$'\nexit' 2>&1 | head -n1)"
+		( echo "$(sed 's/\o033\[[0-9]*;[0-9]*m//g'  <<<"$prompt")$@"; exec $@; )
+	else
+		cat
+	fi | curl -F 'sprunge=<-' http://sprunge.us
 }
 
 uguu(){
@@ -157,40 +157,40 @@ mkcd() {
 }
 
 jsonvalid() {
-    jq . < "$1" >/dev/null
+	jq . < "$1" >/dev/null
 }
 
 jsonfmt() {
-    for arg in "$@"
-    do
-	jsonvalid "$arg" || return 1
-	prettyjson < "$arg" | sponge "$arg"
-    done
+	for arg in "$@"
+	do
+		jsonvalid "$arg" || return 1
+		prettyjson < "$arg" | sponge "$arg"
+	done
 }
 
 minjson() {
-    for arg in "$@"
-    do
-	jsonvalid "$arg" || return 1
-	jq -c . < "$arg" | sponge "$arg"
-    done
+	for arg in "$@"
+	do
+		jsonvalid "$arg" || return 1
+		jq -c . < "$arg" | sponge "$arg"
+	done
 }
 
 bak() {
-    for arg in "$@"
-    do
-	mv -v "$arg"{,.bak}
-    done
+	for arg in "$@"
+	do
+		mv -v "$arg"{,.bak}
+	done
 }
 
 unbak() {
-    for arg in "$@"
-    do
-	case "$arg" in
-	    *.bak) mv -v "$arg" "$(basename -s.bak $arg)";;
-	    *) mv -v "$arg"{.bak,};;
-	esac
-    done
+	for arg in "$@"
+	do
+		case "$arg" in
+			*.bak) mv -v "$arg" "$(basename -s.bak $arg)";;
+			*) mv -v "$arg"{.bak,};;
+		esac
+	done
 }
 
 findbyshebang() {
