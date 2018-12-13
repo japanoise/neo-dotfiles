@@ -183,7 +183,7 @@ unbak() {
     for arg in "$@"
     do
 	case "$arg" in
-	    *.bak) mv -v "$arg" $(basename -s.bak $arg);;
+	    *.bak) mv -v "$arg" "$(basename -s.bak $arg)";;
 	    *) mv -v "$arg"{.bak,};;
 	esac
     done
