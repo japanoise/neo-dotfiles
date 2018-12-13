@@ -208,6 +208,9 @@ pass() {
 	case $1 in
 		pull) rsync -u -h --progress anubis:~/Passwords.kdbx "$HOME"/Passwords.kdbx;;
 		push) rsync -u -h --progress "$HOME"/Passwords.kdbx anubis:~/Passwords.kdbx;;
+		bak) cp -v "$HOME"/Passwords.kdbx "$HOME"/Passwords.kdbx.bak;;
+		unbak) mv -v -i "$HOME"/Passwords.kdbx.bak "$HOME"/Passwords.kdbx;;
+		*) echo "Unknown command $1"; return 1;;
 	esac
 }
 
