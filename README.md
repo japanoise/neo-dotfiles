@@ -20,8 +20,9 @@ pre-commit install
 
 ## Copying
 
-Except dotfiles/.spacemacs, which is heavily based on the default spacemacs
-config, the contents of the fonts/ subdirectory, and bin/imgur, which is copyright [Philip
-Tang](https://github.com/tangphillip/Imgur-Uploader), all files are copyright ©
-2016-2017 japanoise, released under the MIT license; see the LICENSE file for
-license text.
+Files under the `fonts/` subdirectory have their own copyright notices. I'll
+endeavour to keep mirrored stuff marked as not mine, but otherwise it's
+Copyright © japanoise 2016-2018, licensed under the MIT license.
+
+- `bin/imgur` [copyright © Philip Tang](https://github.com/tangphillip/Imgur-Uploader)
+- `bin/bash_prompt.bash` edited from [the original by Artem Sapegin](https://github.com/sapegin/dotfiles/blob/dd063f9c30de7d2234e8accdb5272a5cc0a3388b/includes/bash_prompt.bash)
