@@ -53,7 +53,7 @@ shift $((OPTIND-1))
 COWFILE="/usr/share/cows/${COW}.cow"
 if [ ! -f "$COWFILE" ]
 then
-	fatal "Can't find cowfile $cow!" 1
+	fatal "Can't find cowfile $COW!" 1
 fi
 case "$FRAME" in
 	unicode);;
