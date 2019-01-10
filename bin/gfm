@@ -1,0 +1,23 @@
+#!/bin/sh
+# Render GitHub-flavoured markdown to html
+if ! which kramdown >/dev/null 2>&1
+then
+	echo "$0 needs kramdown to work - gem install kramdown" >&2
+	exit 1
+fi
+infile="$1"
+outfile="$2"
+if [ -z "$infile" ] || [ -z "$outfile" ]
+then
+	echo "usage: $0 <infile> <outfile>" >&2
+	exit 1
+fi
+
+echo "<!DOCTYPE html>" > "$outfile"
+echo '<html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><style>' >> "$outfile"
+curl 'https://raw.githubusercontent.com/japanoise/motherfucking.css/master/motherfucking.css' >> "$outfile" || \
+	wget -O- 'https://raw.githubusercontent.com/japanoise/motherfucking.css/master/motherfucking.css' >> "$outfile"
+echo '</style></head><body>' >> "$outfile"
+kramdown --coderay-line-numbers=table --no-hard-wrap -i GFM "$infile" >> "$outfile"
+echo '</body></html>' >> "$outfile"
+
