@@ -1,4 +1,9 @@
 #!/bin/sh
+if ! [ -f 'fonts/input/Input-Bold_(InputMonoNarrow-Medium).ttf' ]
+then
+	echo "Warning: Input fonts not found. These require manual installation."
+	echo "cd into fonts/input and check README.md"
+fi
 # Ignoring because it's the intended behaviour:
 # shellcheck disable=SC2088
 if grep -q "~/.fonts" /etc/fonts/fonts.conf
