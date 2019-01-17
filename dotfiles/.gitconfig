@@ -1,8 +1,11 @@
+# This file is meant to be passed through m4. If you just want the file, delete
+# the next line (starting with changequote)
+changequote(`[[[[', `]]]]')
 # This is Git's per-user configuration file.
 [user]
-# Please adapt and uncomment the following lines:
-#	name = name
-#	email = name@address.tld
+	# Adapt this or run the m4 command
+	name=mygitusername
+	email=mygitemail
 [alias]
 	co = checkout
 	ri = rebase -i
