@@ -23,3 +23,6 @@
 	mr = !dev/git/reviewed-by.sh
 [merge]
 	conflictstyle = diff3
+[core]
+	pager = less -+FX
+
