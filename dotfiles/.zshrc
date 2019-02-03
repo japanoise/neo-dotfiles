@@ -143,6 +143,8 @@ man() {
 	/usr/bin/man "$@"
 }
 
+alias clip-copy="xsel -b -i"
+alias clip-paste="xsel -b -o"
 alias grep="grep --color=auto"
 alias ls="ls --color"
 alias l="ls -l"
