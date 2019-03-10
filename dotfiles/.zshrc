@@ -222,6 +222,11 @@ pass() {
 	esac
 }
 
+ao3up() {
+	markdown "$1" | clip-copy
+	echo "OK, rendered HTML copied to clipboard"
+}
+
 # gomacs doesn't support the +ln syntax, so simplify LESSEDIT
 export LESSEDIT="%E %f"
 
