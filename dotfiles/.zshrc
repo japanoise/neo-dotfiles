@@ -227,6 +227,36 @@ ao3up() {
 	echo "OK, rendered HTML copied to clipboard"
 }
 
+md5nam() {
+	for file in "$@"
+	do
+		if ! [ -f "$file" ]
+		then
+			continue
+		fi
+		md5=$(md5sum "$file" | sed -e 's/\(\[A-Fa-f0-9\]\)* .*/\1/')
+		ext="bin"
+		case "$(file -bi "$file")" in
+			image/jpeg* )
+				ext="jpg";;
+			image/png* )
+				ext="png";;
+			image/gif* )
+				ext="gif";;
+			video/webm* )
+				ext="webm";;
+			video/mp4* )
+				ext="mp4";;
+			*)
+				# unsupported
+				echo "Warning: no extension for file $file ($md5) was found, so not bothering."
+				echo "Output of file -bi: $(file -bi "$file")"
+				continue;;
+		esac
+		mv -i "$file" "$(dirname "$file")/${md5}.${ext}"
+	done
+}
+
 # gomacs doesn't support the +ln syntax, so simplify LESSEDIT
 export LESSEDIT="%E %f"
 
