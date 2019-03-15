@@ -8,5 +8,21 @@ do
     n=$((n + 1))
     printf "$chapter:\t%i\n" "$wc"
 done
-printf "\n  total:\t%i\n" "$twc"
+wctype=""
+if [ "$twc" -lt 7500 ]
+then
+	wctype="<7500 - Short story"
+elif [ "$twc" -lt 17500 ]
+then
+	wctype="7500-17,499 - Novelette"
+elif [ "$twc" -lt 40000 ]
+then
+	wctype="17,500-39,999 - Novella"
+elif [ "$twc" -lt 50000 ]
+then
+	wctype="40,000 - Novel (SFWA)"
+else
+	wctype="50,000 - Novel (NaNoWriMo)"
+fi
+printf "\n  total:\t%i\t(%s)\n" "$twc" "$wctype"
 printf "    avg:\t%i\n" "$((twc / n))"
