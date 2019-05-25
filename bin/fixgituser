@@ -1,0 +1,21 @@
+#!/bin/bash
+
+PS3='Which name/email? '
+options=("japanoise <japanoise@seekrit.club>" "japanoise <japanoise@users.noreply.github.com>")
+
+select opt in "${options[@]}" "Quit"
+do
+    if [ "$opt" = "QUIT" ]
+    then
+	exit 1
+    fi
+    name=$(echo "$opt" | sed -e "s/\([A-Za-z]*\).*/\1/")
+    email=$(echo "$opt" | sed -e "s/\([A-Za-z]*\) <\([^>]*\)>/\2/")
+    if [ -z "$name" ] || [ -z "$email" ]
+    then
+	exit 1
+    fi
+    git config user.name "$name"
+    git config user.email "$email"
+    exit 0
+done

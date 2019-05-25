@@ -6,6 +6,7 @@ changequote(`[[[[', `]]]]')
 	# Adapt this or run the m4 command
 	name=mygitusername
 	email=mygitemail
+	signingkey = 9F40C3F8800F42ECA613B0EE59FBF1766669807C
 [alias]
 	co = checkout
 	ri = rebase -i
