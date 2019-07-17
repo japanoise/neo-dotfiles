@@ -227,6 +227,7 @@ wiki() {
 	case $1 in
 		pull) rsync -u -r -h --progress anubis:/var/www/wiki/ "$HOME"/Downloads/wiki/;;
 		push) rsync -u -r -h --progress "$HOME"/Downloads/wiki/ anubis:/var/www/wiki/;;
+		open) xdg-open file://"$HOME"/Downloads/wiki/index.html;;
 		*) echo "Unknown command $1"; return 1;;
 	esac
 }
