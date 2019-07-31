@@ -1,7 +1,7 @@
 #
 # Clean and minimalistic Bash prompt
 # Author: Artem Sapegin, sapegin.me
-# 
+#
 # Inspired by: https://github.com/sindresorhus/pure & https://github.com/dreadatour/dotfiles/blob/master/.bash_profile
 #
 # Notes:
@@ -10,18 +10,34 @@
 #
 
 # Colors
-RED="$(tput setaf 1)"
-GREEN="$(tput setaf 2)"
-YELLOW="$(tput setaf 3)"
-BLUE="$(tput setaf 4)"
-MAGENTA="$(tput setaf 5)"
-CYAN="$(tput setaf 6)"
-WHITE="$(tput setaf 7)"
-GRAY="$(tput setaf 8)"
-BOLD="$(tput bold)"
-UNDERLINE="$(tput sgr 0 1)"
-INVERT="$(tput sgr 1 0)"
-NOCOLOR="$(tput sgr0)"
+if [ "$TERM" = "st-256color" ]
+then
+	RED="$(printf "\033[31m")"
+	GREEN="$(printf "\033[32m")"
+	YELLOW="$(printf "\033[33m")"
+	BLUE="$(printf "\033[34m")"
+	MAGENTA="$(printf "\033[35m")"
+	CYAN="$(printf "\033[36m")"
+	WHITE="$(printf "\033[37m")"
+	GRAY="$(printf "\033[38m")"
+	BOLD="$(printf "\033[1m")"
+	UNDERLINE="$(printf "\033(B\033[0;4m")"
+	INVERT="$(printf "\033(B\033[0;7m")"
+	NOCOLOR="$(printf "\033[0m")"
+else
+	RED="$(tput setaf 1)"
+	GREEN="$(tput setaf 2)"
+	YELLOW="$(tput setaf 3)"
+	BLUE="$(tput setaf 4)"
+	MAGENTA="$(tput setaf 5)"
+	CYAN="$(tput setaf 6)"
+	WHITE="$(tput setaf 7)"
+	GRAY="$(tput setaf 8)"
+	BOLD="$(tput bold)"
+	UNDERLINE="$(tput sgr 0 1)"
+	INVERT="$(tput sgr 1 0)"
+	NOCOLOR="$(tput sgr0)"
+fi
 
 root="no"
 # User color
