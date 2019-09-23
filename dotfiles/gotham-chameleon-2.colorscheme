@@ -16,7 +16,7 @@ Bold=true
 # --- standard colors ---
 
 [Color0]
-Color=70,74,80
+Color=85,91,99
 
 [Color0Intense]
 Color=82,106,135
@@ -40,22 +40,22 @@ Color=237,181,75
 Color=233,201,141
 
 [Color4]
-Color=25,84,101
+Color=40,142,172
 
 [Color4Intense]
-Color=55,87,98
+Color=138,169,180
 
 [Color5]
-Color=78,81,101
+Color=222,160,226
 
 [Color5Intense]
-Color=136,139,165
+Color=219,189,223
 
 [Color6]
-Color=51,133,157
+Color=83,217,235
 
 [Color6Intense]
-Color=89,156,170
+Color=155,225,240
 
 [Color7]
 Color=152,209,206
@@ -69,4 +69,3 @@ Color=211,235,233
 Description=gotham-chameleon-2
 Opacity=1
 Wallpaper=
-
