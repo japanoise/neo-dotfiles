@@ -214,8 +214,8 @@ findbyshebang() {
 
 pass() {
 	case $1 in
-		pull) rsync -u -h --progress anubis:~/Passwords.kdbx "$HOME"/Passwords.kdbx;;
-		push) rsync -u -h --progress "$HOME"/Passwords.kdbx anubis:~/Passwords.kdbx;;
+		pull) rsync -u -h --progress gotama:~/Passwords.kdbx "$HOME"/Passwords.kdbx;;
+		push) rsync -u -h --progress "$HOME"/Passwords.kdbx gotama:~/Passwords.kdbx;;
 		bak) cp -v "$HOME"/Passwords.kdbx "$HOME"/Passwords.kdbx.bak;;
 		unbak) mv -v -i "$HOME"/Passwords.kdbx.bak "$HOME"/Passwords.kdbx;;
 		*) echo "Unknown command $1"; return 1;;
@@ -227,11 +227,11 @@ wiki() {
 	mkdir -pv "$HOME"/Downloads/campaign-wiki
 	case $1 in
 		pull)
-			rsync -u -r -h --progress anubis:/var/www/wiki/campaign "$HOME"/Downloads/campaign-wiki
-			rsync -u -r -h --progress anubis:/var/www/wiki/ "$HOME"/Downloads/wiki/;;
+			rsync -u -r -h --progress gotama:/var/www/wiki/campaign "$HOME"/Downloads/campaign-wiki
+			rsync -u -r -h --progress gotama:/var/www/wiki/ "$HOME"/Downloads/wiki/;;
 		push)
-			rsync -u -r -h --progress "$HOME"/Downloads/campaign-wiki/ anubis:/var/www/wiki/campaign/
-			rsync -u -r -h --progress "$HOME"/Downloads/wiki/ anubis:/var/www/wiki/;;
+			rsync -u -r -h --progress "$HOME"/Downloads/campaign-wiki/ gotama:/var/www/wiki/campaign/
+			rsync -u -r -h --progress "$HOME"/Downloads/wiki/ gotama:/var/www/wiki/;;
 		open) xdg-open file://"$HOME"/Downloads/wiki/index.html;;
 		size) ls -lh "$HOME"/Downloads/wiki/index.html;;
 		*) echo "Unknown command $1"; return 1;;
