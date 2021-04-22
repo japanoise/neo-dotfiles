@@ -25,6 +25,7 @@ changequote(`[[[[', `]]]]')
 	diffs = diff --staged
         unpushed = !GIT_CURRENT_BRANCH=$(git name-rev --name-only HEAD) && git log origin/$GIT_CURRENT_BRANCH..$GIT_CURRENT_BRANCH --oneline
 	mr = !dev/git/reviewed-by.sh
+	up = "!git push -u origin $(git rev-parse --abbrev-ref HEAD)"
 [merge]
 	conflictstyle = diff3
 [core]
