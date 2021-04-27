@@ -123,6 +123,9 @@ getDistro() {
     if [ -d /etc/portage ]
     then
         distro="gentoo"
+    elif [ -f /msys2.exe ]
+    then
+        distro="arch"
     else
         for dst in debian redhat arch
         do
