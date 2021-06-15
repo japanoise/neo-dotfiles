@@ -146,7 +146,17 @@ man() {
 alias clip-copy="xsel -b -i"
 alias clip-paste="xsel -b -o"
 alias grep="grep --color=auto"
-alias ls="ls --color"
+
+if [ "$(uname)" = Darwin ]
+then
+	alias ls="gls --color"
+else
+	alias ls="ls --color"
+	export MAKEFLAGS=-j$(($(nproc) + 1))
+	# in case that doesn't work:
+	alias fastmake="make -j$(($(nproc) + 1))"
+fi
+
 alias l="ls -l"
 alias lh="ls -lh"
 alias adb="sudo adb"
@@ -156,9 +166,6 @@ alias gam='VISUAL=/bin/true git commit --amend'
 alias prettyjson='jq .'
 alias wg="wordgrinder"
 alias tb="nc termbin.com 9999"
-export MAKEFLAGS=-j$(($(nproc) + 1))
-# in case that doesn't work:
-alias fastmake="make -j$(($(nproc) + 1))"
 
 mkcd() {
 	mkdir "$1" && cd "$1"
