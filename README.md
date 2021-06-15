@@ -3,6 +3,10 @@
 Starting from scratch rather than doing a messy clearup; my old dotfiles repo
 is full of now useless crap.
 
+On MacOS, you will need to have coreutils installed via e.g. homebrew. Sorry.
+Other dependencies are git, m4, other shit idk read scripts before you run
+them.
+
 Run the install-*.sh scripts to install the components.
 
 For contributing, this will get the pre-commit hook set up:
