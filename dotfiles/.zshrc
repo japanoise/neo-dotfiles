@@ -150,6 +150,11 @@ alias grep="grep --color=auto"
 if [ "$(uname)" = Darwin ]
 then
 	alias ls="gls --color"
+	export MAKEFLAGS=-j$(($(sysctl -n hw.physicalcpu) + 1))
+	# in case that doesn't work:
+	alias fastmake="make -j$(($(sysctl -n hw.physicalcpu) + 1))"
+	# oh fine
+	alias nproc="sysctl -n hw.physicalcpu"
 else
 	alias ls="ls --color"
 	export MAKEFLAGS=-j$(($(nproc) + 1))
