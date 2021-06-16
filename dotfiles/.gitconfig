@@ -30,4 +30,5 @@ changequote(`[[[[', `]]]]')
 	conflictstyle = diff3
 [core]
 	pager = less -+FX
-
+[pull]
+        rebase = true
