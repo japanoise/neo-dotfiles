@@ -33,7 +33,7 @@ zstyle ':completion:*' original true
 zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
 zstyle :compinstall filename "$HOME/.zshrc"
 
-compinit
+compinit -i
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
