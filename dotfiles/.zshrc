@@ -167,7 +167,7 @@ alias lh="ls -lh"
 alias adb="sudo adb"
 alias em="gomacs"
 alias gti="git"
-alias gam='VISUAL=/bin/true git commit --amend'
+alias gam='VISUAL=true git commit --amend'
 alias prettyjson='jq .'
 alias wg="wordgrinder"
 alias tb="nc termbin.com 9999"
