@@ -114,6 +114,10 @@ stty -ixon
 if [[ -s '/etc/zsh_command_not_found' ]]; then
 	source '/etc/zsh_command_not_found'
 fi
+# Arch - Same thing with pkgfile
+if [[ -s '/usr/share/doc/pkgfile/command-not-found.zsh' ]]; then
+	source '/usr/share/doc/pkgfile/command-not-found.zsh'
+fi
 
 pastebin () {
 	if [ "$*" ]; then
