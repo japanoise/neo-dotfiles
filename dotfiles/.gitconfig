@@ -32,3 +32,5 @@ changequote(`[[[[', `]]]]')
 	pager = less -+FX
 [pull]
         rebase = true
+[init]
+	defaultBranch = main
