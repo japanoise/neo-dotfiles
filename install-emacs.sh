@@ -12,7 +12,7 @@ echo "go-mode dependencies..."
 go get -u -v github.com/nsf/gocode github.com/godoctor/godoctor golang.org/x/tools/cmd/goimports github.com/rogpeppe/godef golang.org/x/tools/cmd/gorename
 
 echo "cloning dotemacs..."
-git clone ssh://git@github.com/japanoise/dotemacs "$HOME"/.emacs.d
+git clone ssh://git@github.com/japanoise/neo-dotemacs "$HOME"/.emacs.d
 
 echo "first run, exit once packages are installed (C-x C-c)"
 emacs
