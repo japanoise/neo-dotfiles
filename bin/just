@@ -9,12 +9,12 @@ usage() {
     emsg "usage: $0 command [packages]"
     emsg ""
     emsg "Supported commands:"
-    emsg "install    - install the specified packages"
-    emsg "libinstall - install the specified packages, with hacks to get libraries"
-    emsg "listfiles  - list files installed by the packages"
-    emsg "search     - search for the packages"
-    emsg "update     - sync (if applicable) and update the system"
-    emsg "usage      - display this message"
+    emsg "install     - install the specified packages"
+    emsg "libinstall  - install the specified packages, with hacks to get libraries"
+    emsg "listfiles   - list files installed by the packages"
+    emsg "search      - search for the packages"
+    emsg "update      - sync (if applicable) and update the system"
+    emsg "usage, help - display this message"
 }
 
 doInstall() {
@@ -162,6 +162,8 @@ case "$1" in
         shift
         doUpdate "$@";;
     usage )
+        usage;;
+    help )
         usage;;
     * )
         emsg "Unknown command $1"
