@@ -10,6 +10,7 @@ usage() {
     emsg ""
     emsg "Supported commands:"
     emsg "install     - install the specified packages"
+    emsg "uninstall   - uninstall the specified packages"
     emsg "libinstall  - install the specified packages, with hacks to get libraries"
     emsg "listfiles   - list files installed by the packages"
     emsg "search      - search for the packages"
@@ -27,6 +28,19 @@ doInstall() {
             sudo emerge --ask "$@";;
         arch )
             sudo pacman -S "$@";;
+    esac
+}
+
+doUninstall() {
+    case "$distro" in
+        debian )
+            sudo apt remove "$@";;
+        redhat )
+            sudo yum remove "$@";;
+        gentoo )
+            sudo emerge --deselect "$@" && sudo emerge --ask --depclean;;
+        arch )
+            sudo pacman -Rs "$@";;
     esac
 }
 
@@ -161,6 +175,9 @@ case "$1" in
     update )
         shift
         doUpdate "$@";;
+    uninstall)
+        shift
+        doUninstall "$@";;
     usage )
         usage;;
     help )
