@@ -184,6 +184,7 @@ case "$1" in
         usage;;
     * )
         emsg "Unknown command $1"
+        usage
         exit 1;;
 esac
 
