@@ -5,6 +5,11 @@ if [[ "$PATH" != *"$HOME/bin"* ]]
 then
 	export PATH="$PATH:$HOME/bin"
 fi
+# Same with cargo
+if [[ "$PATH" != *"$HOME/.cargo/bin"* ]]
+then
+	export PATH="$PATH:$HOME/.cargo/bin"
+fi
 
 # Fix for tramp - see https://www.emacswiki.org/emacs/TrampMode#toc9
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
