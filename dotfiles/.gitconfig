@@ -30,6 +30,7 @@ changequote(`[[[[', `]]]]')
 	conflictstyle = diff3
 [core]
 	pager = less -+FX
+	editor = sensible-editor.sh
 [pull]
 	rebase = true
 [init]
