@@ -14,6 +14,7 @@ usage() {
 case "$1" in
     fetch|clone ) git submodule update --init --recursive;;
     update ) git submodule update --remote "$2";;
+    add ) git submodule add "$2";;
     hate )
         while true
         do
