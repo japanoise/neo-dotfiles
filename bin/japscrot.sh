@@ -1,5 +1,5 @@
 #!/bin/sh
-SCROT_CMD="import"
+SCROT_CMD="maim -s"
 mkdir -p "$HOME"/img/scrot
 scrnst=$HOME/img/scrot/$(date +'%Y-%m-%d-%T').png
 if $SCROT_CMD "$scrnst"
