@@ -244,17 +244,19 @@ pass() {
 }
 
 wiki() {
-	mkdir -pv "$HOME"/Downloads/wiki
-	mkdir -pv "$HOME"/Downloads/campaign-wiki
+	wikidir="$HOME"/tiddly
+	wikidest=/home/chameleon/
+	mkdir -pv "$wikidir"
+	#mkdir -pv "$HOME"/Downloads/campaign-wiki
 	case $1 in
 		pull)
-			rsync -u -r -h --progress gotama:/var/www/wiki/campaign "$HOME"/Downloads/campaign-wiki
-			rsync -u -r -h --progress gotama:/var/www/wiki/ "$HOME"/Downloads/wiki/;;
+			#rsync -u -r -h --progress gotama:/var/www/wiki/campaign "$HOME"/Downloads/campaign-wiki
+			rsync -u -r -h --progress gotama:"$wikidest"/tiddly "$wikidir";;
 		push)
-			rsync -u -r -h --progress "$HOME"/Downloads/campaign-wiki/ gotama:/var/www/wiki/campaign/
-			rsync -u -r -h --progress "$HOME"/Downloads/wiki/ gotama:/var/www/wiki/;;
-		open) xdg-open file://"$HOME"/Downloads/wiki/index.html;;
-		size) ls -lh "$HOME"/Downloads/wiki/index.html;;
+			#rsync -u -r -h --progress "$HOME"/Downloads/campaign-wiki/ gotama:/var/www/wiki/campaign/
+			rsync -u -r -h --progress "$wikidir" gotama:"$wikidest";;
+		open) xdg-open file://"$wikidir"/wiki/private/index.html;;
+		size) ls -lh "$wikidir"/wiki/private/index.html;;
 		*) echo "Unknown command $1"; return 1;;
 	esac
 }
