@@ -275,7 +275,7 @@ md5nam() {
 		fi
 		md5=$(md5sum "$file" | sed -e 's/\(\[A-Fa-f0-9\]\)* .*/\1/')
 		ext="bin"
-		case "$(file -bi "$file")" in
+		case "$(file -b --mime "$file")" in
 			image/jpeg* )
 				ext="jpg";;
 			image/png* )
@@ -289,7 +289,7 @@ md5nam() {
 			*)
 				# unsupported
 				echo "Warning: no extension for file $file ($md5) was found, so not bothering."
-				echo "Output of file -bi: $(file -bi "$file")"
+				echo "Output of file -b --mime: $(file -b --mime "$file")"
 				continue;;
 		esac
 		mv -i "$file" "$(dirname "$file")/${md5}.${ext}"
