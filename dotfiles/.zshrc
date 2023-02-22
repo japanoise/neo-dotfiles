@@ -302,6 +302,9 @@ md5nam() {
 # gomacs doesn't support the +ln syntax, so simplify LESSEDIT
 export LESSEDIT="%E %f"
 
+# Make sure rlwrap doesn't drop turds in home directory
+export RLWRAP_HOME="$HOME/.config/rlwrap/"
+
 if [ -f ~/.zshrc-local ]; then source ~/.zshrc-local; fi #put machine-specific path, aliases etc. here
 # Upstream will whinge if this isn't last ;)
 source "$HOME/builds/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
