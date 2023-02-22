@@ -181,6 +181,9 @@ alias prettyjson='jq .'
 alias wg="wordgrinder"
 alias tb="nc termbin.com 9999"
 
+# ed - I use it once in a while, nice to have line editing if available.
+command -v rlwrap > /dev/null && alias ed="rlwrap ed"
+
 mkcd() {
 	mkdir "$1" && cd "$1"
 }
