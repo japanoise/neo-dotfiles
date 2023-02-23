@@ -14,6 +14,9 @@ fi
 # Fix for tramp - see https://www.emacswiki.org/emacs/TrampMode#toc9
 [[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ ' && return
 
+# Fuck flow control, all my homies hate flow control
+stty -ixon
+
 # Make M-DEL and friends a bit more useful
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
