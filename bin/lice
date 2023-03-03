@@ -23,7 +23,7 @@ case "$l" in
 	YEAR=$(promptvalue)
 	echo "Copyright holder?" 1>&2
 	HOLDER=$(promptvalue)
-	sed -e "s/<YEAR>/$YEAR/g" "s/<COPYRIGHT HOLDER>/$HOLDER/g" <<EOF ;;
+	sed -e "s/<YEAR>/$YEAR/g" -e "s/<COPYRIGHT HOLDER>/$HOLDER/g" <<EOF ;;
 Copyright © <YEAR> <COPYRIGHT HOLDER>
 
 Redistribution and use in source and binary forms, with or without modification,
