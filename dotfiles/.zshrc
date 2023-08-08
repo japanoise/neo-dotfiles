@@ -152,7 +152,8 @@ man() {
 	LESS_TERMCAP_me=$(printf "\e[0m") \
 	LESS_TERMCAP_us=$(printf "\e[4;36m") \
 	LESS_TERMCAP_ue=$(printf "\e[0m") \
-	/usr/bin/man "$@"
+	GROFF_NO_SGR=1 \
+	command man "$@"
 }
 
 alias clip-copy="xsel -b -i"
