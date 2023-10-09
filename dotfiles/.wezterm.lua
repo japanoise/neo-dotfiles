@@ -1,3 +1,6 @@
+local uname = io.popen("uname")
+local kernel = uname:read("*a")
+
 -- Pull in the wezterm API
 local wezterm = require 'wezterm'
 
@@ -15,7 +18,14 @@ end
 -- Standard color & font for me
 config.color_scheme = 'Snazzy'
 config.font = wezterm.font 'Go Mono'
-config.font_size = 11.0
+
+if kernel == "Darwin\n" then
+	config.font_size = 13.5
+	config.font = wezterm.font { family = 'Go Mono', weight = 'Bold' }
+else
+	config.font_size = 11.0
+end
+
 config.window_background_opacity = 0.93
 config.colors = {
 	cursor_bg = 'red',
@@ -24,12 +34,22 @@ config.colors = {
 }
 
 -- Remove ugly defaults
-config.window_padding = {
-  left = 0,
-  right = 0,
-  top = 0,
-  bottom = 0,
-}
+if kernel == "Darwin\n" then
+  -- Damn rounded corners
+  config.window_padding = {
+    left = 3,
+    right = 3,
+    top = 0,
+    bottom = 3,
+  }
+else
+  config.window_padding = {
+    left = 0,
+    right = 0,
+    top = 0,
+    bottom = 0,
+  }
+end
 
 -- Prompt char looks kooky, so use a different one.
 config.set_environment_variables = { PURE_PROMPT_SYMBOL = ">" }
