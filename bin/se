@@ -1,12 +1,12 @@
 #!/bin/sh
-if [ -z "$DISPLAY" ]
+if [ -z "$DISPLAY" ] && ! [ "$(uname)" = 'Darwin' ]
 then
     SPEFLAGS="-nw"
 else
     SPEFLAGS="-c"
 fi
 
-if ! pgrep -u $(whoami) emacs; then
+if ! pgrep -i -u "$(whoami)" emacs; then
     emacs --daemon
 fi
 
