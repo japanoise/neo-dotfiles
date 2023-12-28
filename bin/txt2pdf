@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# A utility script using paps: https://github.com/dov/paps
+# and ps2pdf (i.e. ghostscript)
+
+# check for the presence of necessary programs
+if ! command -v paps >/dev/null
+then
+    echo "$0: paps not found: install https://github.com/dov/paps (aur/paps-git)" >&2
+    exit 1
+fi
+if ! command -v ps2pdf >/dev/null
+then
+    echo "$0: ps2pdf not found: install ghostscript (gs)" >&2
+    exit 1
+fi
+
+# if no primary argument provided, use stdin
+if [ -z "$1" ]
+then
+    paps | ps2pdf - txt2pdf.pdf
+    echo "$0: output stdin to txt2pdf.pdf" >&2
+    exit 0
+fi
+
+# infer output name if none provided
+output="$2"
+if [ -z "$output" ]
+then
+    basename=$(basename -s.txt "$1")
+    output="$basename".pdf
+    echo "$0: no output filename provided, using $output"
+fi
+
+# perform operation
+paps --font='Monospace 10' --paper=letter --footer \
+     --footer-right="page {page_idx} of {num_pages}" "$1" | ps2pdf - "$output"
