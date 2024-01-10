@@ -6,7 +6,6 @@ changequote(`[[[[', `]]]]')
 	# Adapt this or run the m4 command
 	name=mygitusername
 	email=mygitemail
-	signingkey = 9F40C3F8800F42ECA613B0EE59FBF1766669807C
 [alias]
 	co = checkout
 	ri = rebase -i
@@ -25,7 +24,6 @@ changequote(`[[[[', `]]]]')
 	diffs = diff --staged
 	update-date = !git commit --amend --date=\"$(date -R)\"
 	unpushed = !GIT_CURRENT_BRANCH=$(git name-rev --name-only HEAD) && git log origin/$GIT_CURRENT_BRANCH..$GIT_CURRENT_BRANCH --oneline
-	mr = !dev/git/reviewed-by.sh
 	up = "!git push -u origin $(git rev-parse --abbrev-ref HEAD)"
 [merge]
 	conflictstyle = diff3
