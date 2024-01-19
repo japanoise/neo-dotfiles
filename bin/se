@@ -10,4 +10,4 @@ if ! pgrep -i -u "$(whoami)" emacs; then
     emacs --daemon
 fi
 
-exec emacsclient $SPEFLAGS $*
+exec emacsclient $SPEFLAGS "$@"
