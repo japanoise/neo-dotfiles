@@ -21,8 +21,8 @@ stty -ixon
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 # do this before compinit
-# explicitly set LS_COLORS to something sane (changed is ow, to sth readable)
-LS_COLORS='rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=95:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.Z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:';
+# explicitly set LS_COLORS to something sane
+LS_COLORS='rs=0:di=00;94:ln=00;96:mh=00:pi=40;93:so=00;95:do=00;95:bd=40;93;01:cd=40;93;01:or=40;91;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=95:st=37;44:ex=00;92:*.tar=00;91:*.tgz=00;91:*.arc=00;91:*.arj=00;91:*.taz=00;91:*.lha=00;91:*.lz4=00;91:*.lzh=00;91:*.lzma=00;91:*.tlz=00;91:*.txz=00;91:*.tzo=00;91:*.t7z=00;91:*.zip=00;91:*.z=00;91:*.Z=00;91:*.dz=00;91:*.gz=00;91:*.lrz=00;91:*.lz=00;91:*.lzo=00;91:*.xz=00;91:*.zst=00;91:*.tzst=00;91:*.bz2=00;91:*.bz=00;91:*.tbz=00;91:*.tbz2=00;91:*.tz=00;91:*.deb=00;91:*.rpm=00;91:*.jar=00;91:*.war=00;91:*.ear=00;91:*.sar=00;91:*.rar=00;91:*.alz=00;91:*.ace=00;91:*.zoo=00;91:*.cpio=00;91:*.7z=00;91:*.rz=00;91:*.cab=00;91:*.wim=00;91:*.swm=00;91:*.dwm=00;91:*.esd=00;91:*.jpg=00;95:*.jpeg=00;95:*.mjpg=00;95:*.mjpeg=00;95:*.gif=00;95:*.bmp=00;95:*.pbm=00;95:*.pgm=00;95:*.ppm=00;95:*.tga=00;95:*.xbm=00;95:*.xpm=00;95:*.tif=00;95:*.tiff=00;95:*.png=00;95:*.svg=00;95:*.svgz=00;95:*.mng=00;95:*.pcx=00;95:*.mov=00;95:*.mpg=00;95:*.mpeg=00;95:*.m2v=00;95:*.mkv=00;95:*.webm=00;95:*.ogm=00;95:*.mp4=00;95:*.m4v=00;95:*.mp4v=00;95:*.vob=00;95:*.qt=00;95:*.nuv=00;95:*.wmv=00;95:*.asf=00;95:*.rm=00;95:*.rmvb=00;95:*.flc=00;95:*.avi=00;95:*.fli=00;95:*.flv=00;95:*.gl=00;95:*.dl=00;95:*.xcf=00;95:*.xwd=00;95:*.yuv=00;95:*.cgm=00;95:*.emf=00;95:*.ogv=00;95:*.ogx=00;95:*.aac=00;96:*.au=00;96:*.flac=00;96:*.m4a=00;96:*.mid=00;96:*.midi=00;96:*.mka=00;96:*.mp3=00;96:*.mpc=00;96:*.ogg=00;96:*.ra=00;96:*.wav=00;96:*.oga=00;96:*.opus=00;96:*.spx=00;96:*.xspf=00;96:';
 export LS_COLORS
 
 fpath=( "$HOME/.zfunctions" $fpath )
@@ -105,12 +105,61 @@ fi
 # Setup prompt
 autoload -U promptinit; promptinit
 PS2="%{$fg[yellow]%}%_ %{%B$fg[blue]%b%}>%{$reset_color%}"
-if [ "$TERM" = "linux" ]
+
+# Terminals that only support 8 colors (and, usually, no unicode)
+if [ "$(echotc Co)" = 8 ]
 then
+	# Use bright colors - needs to work around a hack zsh does
+	# with the default color.
+	zle_highlight=(fg_default_code:"2m\e[39"; fg_start_code:"\e[9")
+	# ascii prompt(s)
 	PURE_PROMPT_SYMBOL='>'
 	PURE_PROMPT_VICMD_SYMBOL='<'
-	PURE_GIT_DOWN_ARROW='V'
+	PURE_GIT_DOWN_ARROW='v'
 	PURE_GIT_UP_ARROW='^'
+	# IT'S PINK!
+	zstyle :prompt:pure:git:dirty color 5
+	# These are grey
+	zstyle :prompt:pure:git:action color 0
+	zstyle :prompt:pure:git:branch color 0
+	zstyle :prompt:pure:host color 0
+	zstyle :prompt:pure:user color 0
+	zstyle :prompt:pure:virtualenv color 0
+	zstyle :prompt:pure:prompt:continuation color 0
+	# add missing highlighting
+	typeset -A ZSH_HIGHLIGHT_STYLES
+	ZSH_HIGHLIGHT_STYLES[single-quoted-argument-unclosed]='fg=1'
+	ZSH_HIGHLIGHT_STYLES[double-quoted-argument-unclosed]='fg=1'
+	ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument-unclosed]='fg=1'
+	ZSH_HIGHLIGHT_STYLES[assign]='fg=6'
+	ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=6'
+else
+	# make prompt/highlight more readable on dark terminals with VGA colors
+	# https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg
+	zstyle :prompt:pure:prompt:success color 13
+	zstyle :prompt:pure:prompt:error color 9
+	zstyle :prompt:pure:path color 12
+	zstyle :prompt:pure:git:action color 8
+	zstyle :prompt:pure:git:branch color 8
+	zstyle :prompt:pure:git:arrow color 14
+	zstyle :prompt:pure:git:action color 8
+	zstyle :prompt:pure:git:dirty color 13
+	typeset -A ZSH_HIGHLIGHT_STYLES
+	ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=9'
+	ZSH_HIGHLIGHT_STYLES[redirection]='fg=11'
+	ZSH_HIGHLIGHT_STYLES[globbing]='fg=12'
+	ZSH_HIGHLIGHT_STYLES[command]='fg=10'
+	ZSH_HIGHLIGHT_STYLES[alias]='fg=10,bold'
+	ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=11'
+	ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=11'
+	ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument]='fg=11'
+	# Generally useful - highlight unclosed arguments
+	ZSH_HIGHLIGHT_STYLES[single-quoted-argument-unclosed]='fg=9'
+	ZSH_HIGHLIGHT_STYLES[double-quoted-argument-unclosed]='fg=9'
+	ZSH_HIGHLIGHT_STYLES[dollar-quoted-argument-unclosed]='fg=9'
+	# Other stuff not highlighted by default
+	ZSH_HIGHLIGHT_STYLES[assign]='fg=14'
+	ZSH_HIGHLIGHT_STYLES[commandseparator]='fg=6'
 fi
 prompt pure
 RPROMPT=$'%(?..%{$fg_bold[red]%}%?%{$reset_color%})'
@@ -145,12 +194,12 @@ man() {
 	# so, se: reverse-video for status line
 	# mb, md, me: blue for titles
 	# us, ue: underline for highlights
-	LESS_TERMCAP_so=$(printf "\e[1;7m") \
+	LESS_TERMCAP_so=$(printf "\e[7m") \
 	LESS_TERMCAP_se=$(printf "\e[0m") \
-	LESS_TERMCAP_mb=$(printf "\e[1;34m") \
-	LESS_TERMCAP_md=$(printf "\e[1;34m") \
+	LESS_TERMCAP_mb=$(printf "\e[94m") \
+	LESS_TERMCAP_md=$(printf "\e[94m") \
 	LESS_TERMCAP_me=$(printf "\e[0m") \
-	LESS_TERMCAP_us=$(printf "\e[4;36m") \
+	LESS_TERMCAP_us=$(printf "\e[4;96m") \
 	LESS_TERMCAP_ue=$(printf "\e[0m") \
 	GROFF_NO_SGR=1 \
 	command man "$@"
