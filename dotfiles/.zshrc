@@ -22,7 +22,37 @@ WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 # do this before compinit
 # explicitly set LS_COLORS to something sane
-LS_COLORS='rs=0:di=00;94:ln=00;96:mh=00:pi=40;93:so=00;95:do=00;95:bd=40;93;01:cd=40;93;01:or=40;91;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=95:st=37;44:ex=00;92:*.tar=00;91:*.tgz=00;91:*.arc=00;91:*.arj=00;91:*.taz=00;91:*.lha=00;91:*.lz4=00;91:*.lzh=00;91:*.lzma=00;91:*.tlz=00;91:*.txz=00;91:*.tzo=00;91:*.t7z=00;91:*.zip=00;91:*.z=00;91:*.Z=00;91:*.dz=00;91:*.gz=00;91:*.lrz=00;91:*.lz=00;91:*.lzo=00;91:*.xz=00;91:*.zst=00;91:*.tzst=00;91:*.bz2=00;91:*.bz=00;91:*.tbz=00;91:*.tbz2=00;91:*.tz=00;91:*.deb=00;91:*.rpm=00;91:*.jar=00;91:*.war=00;91:*.ear=00;91:*.sar=00;91:*.rar=00;91:*.alz=00;91:*.ace=00;91:*.zoo=00;91:*.cpio=00;91:*.7z=00;91:*.rz=00;91:*.cab=00;91:*.wim=00;91:*.swm=00;91:*.dwm=00;91:*.esd=00;91:*.jpg=00;95:*.jpeg=00;95:*.mjpg=00;95:*.mjpeg=00;95:*.gif=00;95:*.bmp=00;95:*.pbm=00;95:*.pgm=00;95:*.ppm=00;95:*.tga=00;95:*.xbm=00;95:*.xpm=00;95:*.tif=00;95:*.tiff=00;95:*.png=00;95:*.svg=00;95:*.svgz=00;95:*.mng=00;95:*.pcx=00;95:*.mov=00;95:*.mpg=00;95:*.mpeg=00;95:*.m2v=00;95:*.mkv=00;95:*.webm=00;95:*.ogm=00;95:*.mp4=00;95:*.m4v=00;95:*.mp4v=00;95:*.vob=00;95:*.qt=00;95:*.nuv=00;95:*.wmv=00;95:*.asf=00;95:*.rm=00;95:*.rmvb=00;95:*.flc=00;95:*.avi=00;95:*.fli=00;95:*.flv=00;95:*.gl=00;95:*.dl=00;95:*.xcf=00;95:*.xwd=00;95:*.yuv=00;95:*.cgm=00;95:*.emf=00;95:*.ogv=00;95:*.ogx=00;95:*.aac=00;96:*.au=00;96:*.flac=00;96:*.m4a=00;96:*.mid=00;96:*.midi=00;96:*.mka=00;96:*.mp3=00;96:*.mpc=00;96:*.ogg=00;96:*.ra=00;96:*.wav=00;96:*.oga=00;96:*.opus=00;96:*.spx=00;96:*.xspf=00;96:';
+LS_COLORS='rs=0:di=00;94:ln=00;96:mh=00:pi=40;93:so=00;95:do=00;95:bd=40;93;01:'
+LS_COLORS="$LS_COLORS"'cd=40;93;01:or=40;91;01:mi=00:su=37;41:sg=30;43:'
+LS_COLORS="$LS_COLORS"'ca=30;41:tw=30;42:ow=95:st=37;44:ex=00;92:*.tar=00;91:'
+LS_COLORS="$LS_COLORS"'*.tgz=00;91:*.arc=00;91:*.arj=00;91:*.taz=00;91:'
+LS_COLORS="$LS_COLORS"'*.lha=00;91:*.lz4=00;91:*.lzh=00;91:*.lzma=00;91:'
+LS_COLORS="$LS_COLORS"'*.tlz=00;91:*.txz=00;91:*.tzo=00;91:*.t7z=00;91:'
+LS_COLORS="$LS_COLORS"'*.zip=00;91:*.z=00;91:*.Z=00;91:*.dz=00;91:*.gz=00;91:'
+LS_COLORS="$LS_COLORS"'*.lrz=00;91:*.lz=00;91:*.lzo=00;91:*.xz=00;91:'
+LS_COLORS="$LS_COLORS"'*.zst=00;91:*.tzst=00;91:*.bz2=00;91:*.bz=00;91:'
+LS_COLORS="$LS_COLORS"'*.tbz=00;91:*.tbz2=00;91:*.tz=00;91:*.deb=00;91:'
+LS_COLORS="$LS_COLORS"'*.rpm=00;91:*.jar=00;91:*.war=00;91:*.ear=00;91:'
+LS_COLORS="$LS_COLORS"'*.sar=00;91:*.rar=00;91:*.alz=00;91:*.ace=00;91:'
+LS_COLORS="$LS_COLORS"'*.zoo=00;91:*.cpio=00;91:*.7z=00;91:*.rz=00;91:'
+LS_COLORS="$LS_COLORS"'*.cab=00;91:*.wim=00;91:*.swm=00;91:*.dwm=00;91:'
+LS_COLORS="$LS_COLORS"'*.esd=00;91:*.jpg=00;95:*.jpeg=00;95:*.mjpg=00;95:'
+LS_COLORS="$LS_COLORS"'*.mjpeg=00;95:*.gif=00;95:*.bmp=00;95:*.pbm=00;95:'
+LS_COLORS="$LS_COLORS"'*.pgm=00;95:*.ppm=00;95:*.tga=00;95:*.xbm=00;95:'
+LS_COLORS="$LS_COLORS"'*.xpm=00;95:*.tif=00;95:*.tiff=00;95:*.png=00;95:'
+LS_COLORS="$LS_COLORS"'*.svg=00;95:*.svgz=00;95:*.mng=00;95:*.pcx=00;95:'
+LS_COLORS="$LS_COLORS"'*.mov=00;95:*.mpg=00;95:*.mpeg=00;95:*.m2v=00;95:'
+LS_COLORS="$LS_COLORS"'*.mkv=00;95:*.webm=00;95:*.ogm=00;95:*.mp4=00;95:'
+LS_COLORS="$LS_COLORS"'*.m4v=00;95:*.mp4v=00;95:*.vob=00;95:*.qt=00;95:'
+LS_COLORS="$LS_COLORS"'*.nuv=00;95:*.wmv=00;95:*.asf=00;95:*.rm=00;95:'
+LS_COLORS="$LS_COLORS"'*.rmvb=00;95:*.flc=00;95:*.avi=00;95:*.fli=00;95:'
+LS_COLORS="$LS_COLORS"'*.flv=00;95:*.gl=00;95:*.dl=00;95:*.xcf=00;95:'
+LS_COLORS="$LS_COLORS"'*.xwd=00;95:*.yuv=00;95:*.cgm=00;95:*.emf=00;95:'
+LS_COLORS="$LS_COLORS"'*.ogv=00;95:*.ogx=00;95:*.aac=00;96:*.au=00;96:'
+LS_COLORS="$LS_COLORS"'*.flac=00;96:*.m4a=00;96:*.mid=00;96:*.midi=00;96:'
+LS_COLORS="$LS_COLORS"'*.mka=00;96:*.mp3=00;96:*.mpc=00;96:*.ogg=00;96:'
+LS_COLORS="$LS_COLORS"'*.ra=00;96:*.wav=00;96:*.oga=00;96:*.opus=00;96:'
+LS_COLORS="$LS_COLORS"'*.spx=00;96:*.xspf=00;96:'
 export LS_COLORS
 
 fpath=( "$HOME/.zfunctions" $fpath )
