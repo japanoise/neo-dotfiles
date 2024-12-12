@@ -1,6 +1,6 @@
 #!/bin/sh
-# just - omniversal package manager wrapper
-# Just do what I mean!
+# brew.sh - omniversal package manager wrapper
+# The interface of homebrew, without the Mac!
 emsg() {
     echo "$@" >&2
 }
