@@ -28,6 +28,8 @@ doInstall() {
             sudo emerge --ask "$@";;
         arch )
             sudo pacman -S "$@";;
+        msys2 )
+            pacman -S "$@";;
     esac
 }
 
@@ -41,6 +43,8 @@ doUninstall() {
             sudo emerge --deselect "$@" && sudo emerge --ask --depclean;;
         arch )
             sudo pacman -Rs "$@";;
+        msys2 )
+            pacman -Rs "$@";;
     esac
 }
 
@@ -62,6 +66,11 @@ doLibInstall() {
             for lib in "$@"
             do
                 sudo pacman -S "lib${lib}" || sudo pacman -S "$lib" || (emsg "$lib not found" && exit 1)
+            done;;
+        msys2 )
+            for lib in "$@"
+            do
+                pacman -S "lib${lib}" || pacman -S "$lib" || (emsg "$lib not found" && exit 1)
             done;;
     esac
 }
@@ -86,7 +95,7 @@ doListFiles() {
                 emsg "Listfiles requires equery - sudo emerge --ask app-portage/gentoolkit"
                 exit 1
             fi;;
-        arch )
+        arch|msys2 )
             pacman -Ql "$@";;
     esac
 }
@@ -105,7 +114,7 @@ doSearch() {
                 emsg "You need eix installed to search - sudo emerge eix"
                 exit 1
             fi;;
-        arch )
+        arch|msys2 )
             pacman -Ss "$@";;
     esac
 }
@@ -129,6 +138,9 @@ doUpdate() {
         arch )
             # Prepare for breakage!
             sudo pacman -Syu;;
+        msys2 )
+            # Prepare for breakage!
+            pacman -Syu;;
     esac
 }
 
@@ -139,7 +151,7 @@ getDistro() {
         distro="gentoo"
     elif [ -f /msys2.exe ]
     then
-        distro="arch"
+        distro="msys2"
     else
         for dst in debian redhat arch
         do
@@ -152,7 +164,7 @@ getDistro
 if [ "$distro" = "unknown" ]
 then
     emsg "Unsupported distro. This script currently supports:"
-    emsg "arch, debian family, redhat family, and portage-based distros"
+    emsg "arch, msys2, debian family, redhat family, and portage-based distros"
     exit 1
 else
     emsg "Detected distro (or family) $distro"
