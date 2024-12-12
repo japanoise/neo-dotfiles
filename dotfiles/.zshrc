@@ -209,6 +209,7 @@ alias clip-copy="xsel -b -i"
 alias clip-paste="xsel -b -o"
 alias grep="grep --color=auto"
 
+# Make MacOS feel more comfortable
 if [ "$(uname)" = Darwin ]
 then
 	alias ls="gls --color"
@@ -222,6 +223,12 @@ else
 	export MAKEFLAGS=-j$(($(nproc) + 1))
 	# in case that doesn't work:
 	alias fastmake="make -j$(($(nproc) + 1))"
+
+	# Believe it or not, I ended up basically re-inventing the
+	# homebrew UX from first principles.  cmd subcmd is just a
+	# good way to design a package manager.  So, aliasing brew
+	# to my own omniversal package manager works nicely.
+	alias brew="brew.sh"
 fi
 
 alias l="ls -l"
