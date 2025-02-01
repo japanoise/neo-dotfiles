@@ -239,8 +239,9 @@ alias clip-copy="xsel -b -i"
 alias clip-paste="xsel -b -o"
 alias grep="grep --color=auto"
 
-# Make MacOS feel more comfortable
-if [ "$(uname)" = Darwin ]
+# Make BSDs feel more comfortable
+kernel_name="$(uname)"
+if [ "$kernel_name" = Darwin ]
 then
 	alias ls="gls --color"
 	export MAKEFLAGS=-j$(($(sysctl -n hw.physicalcpu) + 1))
@@ -248,6 +249,16 @@ then
 	alias fastmake="make -j$(($(sysctl -n hw.physicalcpu) + 1))"
 	# oh fine
 	alias nproc="sysctl -n hw.physicalcpu"
+elif [ "$kernel_name" = OpenBSD ]
+then
+	alias ls="gls --color"
+	nproc() {
+		sysctl hw.ncpu | sed -e 's/^[^=]*=//'
+	}
+	export MAKEFLAGS=-j$(($(nproc) + 1))
+	# in case that doesn't work:
+	alias fastmake="make -j$(($(nproc) + 1))"
+	alias brew=brew.sh
 else
 	alias ls="ls --color"
 	export MAKEFLAGS=-j$(($(nproc) + 1))
