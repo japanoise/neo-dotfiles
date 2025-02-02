@@ -20,6 +20,8 @@ usage() {
 
 doInstall() {
     case "$distro" in
+        openbsd )
+            doas pkg_add "$@";;
         debian )
             sudo apt install "$@";;
         redhat )
@@ -35,6 +37,8 @@ doInstall() {
 
 doUninstall() {
     case "$distro" in
+        openbsd )
+            doas pkg_delete "$@";;
         debian )
             sudo apt remove "$@";;
         redhat )
@@ -62,6 +66,11 @@ doLibInstall() {
             done;;
         gentoo )
             sudo emerge --ask "$@";;
+        openbsd )
+            for lib in "$@"
+            do
+                doas pkg_add "lib${lib}" || pkg_add "$lib" || (emsg "$lib not found" && exit 1)
+            done;;
         arch )
             for lib in "$@"
             do
@@ -77,6 +86,8 @@ doLibInstall() {
 
 doListFiles() {
     case "$distro" in
+        openbsd )
+            pkg_locate "$@";;
         debian )
             dpkg-query -L "$@";;
         redhat )
@@ -102,6 +113,8 @@ doListFiles() {
 
 doSearch() {
     case "$distro" in
+        openbsd )
+            pkg_info -aQ "$@";;
         debian )
             apt search "$@";;
         redhat )
@@ -121,6 +134,12 @@ doSearch() {
 
 doUpdate() {
     case "$distro" in
+        openbsd )
+            echo "Updating packages..."
+            doas pkg_add -u
+            echo "Updating system..."
+            doas syspatch
+            ;;
         debian )
             sudo apt update
             sudo apt upgrade;;
@@ -152,6 +171,9 @@ getDistro() {
     elif [ -f /msys2.exe ]
     then
         distro="msys2"
+    elif [ "$(uname)" = OpenBSD ]
+    then
+        distro="openbsd"
     else
         for dst in debian redhat arch
         do
@@ -164,7 +186,7 @@ getDistro
 if [ "$distro" = "unknown" ]
 then
     emsg "Unsupported distro. This script currently supports:"
-    emsg "arch, msys2, debian family, redhat family, and portage-based distros"
+    emsg "arch, msys2, openbsd, debian family, redhat family, and portage-based distros"
     exit 1
 else
     emsg "Detected distro (or family) $distro"
