@@ -1,8 +1,0 @@
-#!/bin/sh
-case "$1" in
-	sync ) sudo layman --sync-all; sudo eix-sync;;
-	update ) sudo emerge --ask --update --deep --newuse --with-bdeps=y @world;;
-	install ) shift; sudo emerge --ask "$@";;
-	search ) shift; eix "$@";;
-	* ) echo 'bad command' >&2; exit 1;;
-esac
