@@ -1,0 +1,121 @@
+Xft.hinting: 1
+Xft.hintstyle: hintslight
+Xft.antialias: 1
+Xft.rgba: rgb
+! I think this comes from Score-chan. No idea what it does.
+! Xft.lcdfilter: ldcdefault
+
+! I cannot work without a blinking cursor
+*.cursorBlink: on
+
+! Standard VGA colors
+! *.background:   #000000
+! *.foreground:   #A8A8A8
+! *.color0:   #000000
+! *.color1:   #A80000
+! *.color2:   #00A800
+! *.color3:   #A8A800
+! *.color4:   #0000A8
+! *.color5:   #A800A8
+! *.color6:   #00A8A8
+! *.color7:   #A8A8A8
+! *.color8:   #000054
+! *.color9:   #FF0054
+! *.color10:  #00FF54
+! *.color11:  #FFFF54
+! *.color12:  #0000FF
+! *.color13:  #FF00FF
+! *.color14:  #00FFFF
+! *.color15:  #FFFFFF
+
+! "snazzy" colors
+! *.cursorColor:  #98d1ce
+*.background:   #282a36
+*.foreground:   #e2e4e5
+*.color0:       #282a36
+*.color1:       #ff5c57
+*.color2:       #5af78e
+*.color3:       #f3f99d
+*.color4:       #57c7ff
+*.color5:       #ff6ac1
+*.color6:       #9aedfe
+*.color7:       #e2e4e5
+*.color8:       #282a36
+*.color9:       #ff5c57
+*.color10:      #5af78e
+*.color11:      #f3f99d
+*.color12:      #57c7ff
+*.color13:      #ff6ac1
+*.color14:      #9aedfe
+*.color15:      #f1f1f0
+
+! xterm: make it a tad more bearable to use this geriatric program
+xterm*locale: true
+xterm*metaSendsEscape: true
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!                                                                  !!
+!!                           urxvt config                           !!
+!!                                                                  !!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! More cutchars. Will need to decide if I want this.
+! URxvt*cutchars: '"'&()*,;<=>?@[]^{|}\:
+
+! Color depth?
+! URxvt*depth: 32
+! Suspect this one has to do with JP input.
+! URxvt.preeditType: Root
+
+! Disable the unicode input widget
+URxvt.iso14755: off
+URxvt.iso14755_52: off
+
+! Scroll to the bottom when pressing a key
+URxvt.scrollTtyKeypress: on
+URxvt.scrollTtyOutput: off
+URxvt.scrollWithBuffer: on
+
+! Set an arbitrarily huge scrollback; disable the ugly scrollbar
+URxvt*saveLines: 100000
+URxvt*scrollBar: false
+
+! The best font in the multiverse
+URxvt.font: xft:Go Mono:size=10
+! Apparently italic fonts can lose, so coerce them a bit
+URxvt.italicFont:        xft:Go Mono:italic:autohint=true
+URxvt.boldItalicFont:    xft:Go Mono:bold:italic:autohint=true
+
+! correct name so that applications detects a 256 color
+! enabled terminal emulator
+URxvt*termName: rxvt-unicode-256color
+
+! emulate xterm-style control codes for ctrl+arrows and alt+arrows, etc
+URxvt.keysym.S-Up:        \033[1;2A
+URxvt.keysym.S-Down:      \033[1;2B
+URxvt.keysym.S-Right:     \033[1;2C
+URxvt.keysym.S-Left:      \033[1;2D
+URxvt.keysym.M-Up:        \033[1;3A
+URxvt.keysym.M-Down:      \033[1;3B
+URxvt.keysym.M-Right:     \033[1;3C
+URxvt.keysym.M-Left:      \033[1;3D
+URxvt.keysym.S-M-Up:      \033[1;4A
+URxvt.keysym.S-M-Down:    \033[1;4B
+URxvt.keysym.S-M-Right:   \033[1;4C
+URxvt.keysym.S-M-Left:    \033[1;4D
+URxvt.keysym.C-Up:        \033[1;5A
+URxvt.keysym.C-Down:      \033[1;5B
+URxvt.keysym.C-Right:     \033[1;5C
+URxvt.keysym.C-Left:      \033[1;5D
+URxvt.keysym.S-C-Up:      \033[1;6A
+URxvt.keysym.S-C-Down:    \033[1;6B
+URxvt.keysym.S-C-Right:   \033[1;6C
+URxvt.keysym.S-C-Left:    \033[1;6D
+URxvt.keysym.M-C-Up:      \033[1;7A
+URxvt.keysym.M-C-Down:    \033[1;7B
+URxvt.keysym.M-C-Right:   \033[1;7C
+URxvt.keysym.M-C-Left:    \033[1;7D
+URxvt.keysym.S-M-C-Up:    \033[1;8A
+URxvt.keysym.S-M-C-Down:  \033[1;8B
+URxvt.keysym.S-M-C-Right: \033[1;8C
+URxvt.keysym.S-M-C-Left:  \033[1;8D
