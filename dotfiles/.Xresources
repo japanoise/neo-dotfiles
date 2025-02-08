@@ -82,6 +82,7 @@ URxvt*scrollBar: false
 
 ! The best font in the multiverse
 URxvt.font: xft:Go Mono:size=10
+URxvt.boldFont: xft:Go Mono:bold
 ! Apparently italic fonts can lose, so coerce them a bit
 URxvt.italicFont:        xft:Go Mono:italic:autohint=true
 URxvt.boldItalicFont:    xft:Go Mono:bold:italic:autohint=true
