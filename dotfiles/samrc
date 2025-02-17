@@ -1,7 +1,7 @@
 # ---- No Rice, No Life! ----
 # My favorite bitmap font; sam doesn't play nice with TTFs and dark mode :(
 # https://int10h.org/oldschool-pc-fonts/download/
-font BmPlus IBM VGA 9x16:antialias=0
+font BmPlus IBM VGA 9x16:antialias=0:size=9
 
 # Off-white text & borders
 foreground #98d1ce
