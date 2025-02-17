@@ -1,0 +1,62 @@
+# ---- No Rice, No Life! ----
+# My favorite bitmap font; sam doesn't play nice with TTFs and dark mode :(
+# https://int10h.org/oldschool-pc-fonts/download/
+font BmPlus IBM VGA 9x16:antialias=0
+
+# Off-white text & borders
+foreground #98d1ce
+border #77a5aa
+# off-black background, with color variations
+background #0a0f14:#263037:#2D2636:#362D26:#2F3626:#273626
+
+# ---- Misc Configuration ----
+autoindent true
+followfocus false
+
+# ---- Bindings - Emacs Scum! ----
+# bind M K command C A
+#    mods keysym cmd arg
+# a = Alt, c = Ctrl, s = Shift
+
+# Directions
+bind * Left command charleft
+bind * Right command charright
+bind * Up command lineup
+bind * Down command linedown
+bind c B command charleft
+bind c F command charright
+bind c P command lineup
+bind c N command linedown
+bind c A command bol
+bind c E command eol
+bind * Home command bol
+bind * End command eol
+bind c V command scrolldown
+bind c Z command scrollup
+bind a V command scrollup
+# move to start/end of buffer
+bind a less command send 0
+bind a greater command send $
+bind c Home command send 0
+bind c End command send $
+
+# Muh muscle memory
+bind a X command jump
+bind c S command look
+bind c slash command send u
+
+# Clipboard
+bind c W command cut
+bind a W command snarf
+bind c Y command paste
+
+# Editing
+bind a BackSpace command delword
+bind c D command del
+# Kill to eol
+bind c K command send .,/$/d
+# Kill line
+bind cs BackSpace command send ?^?,/$/d
+
+# Non-Emacs
+bind a S command write
