@@ -416,7 +416,7 @@ export LESSEDIT="%E %f"
 export RLWRAP_HOME="$HOME/.config/rlwrap/"
 
 # Using bat more and more, might as well make the theme friendly
-export BAT_THEME=ansi
+export BAT_THEME=OneHalfDark
 
 if [ -f ~/.zshrc-local ]; then source ~/.zshrc-local; fi #put machine-specific path, aliases etc. here
 # Upstream will whinge if this isn't last ;)
