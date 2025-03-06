@@ -7,24 +7,39 @@ changequote(`[[[[', `]]]]')
 	name=mygitusername
 	email=mygitemail
 [alias]
+	# general short forms
 	co = checkout
-	ri = rebase -i
-	rc = rebase --continue
 	st = status
-	ws = rebase --whitespace=fix
 	cg = config --global
-	logo = log --oneline --decorate
-	base = merge-base HEAD HEAD@{u}
-	lob = !git log --oneline --decorate --first-parent `git base`^..
 	cf = config
 	br = branch
 	ci = commit
+
+	# useful logs
+	logo = log --oneline --decorate
+	lob = !git log --oneline --decorate --first-parent `git base`^..
 	logob = log --oneline --decorate --first-parent
 	logog = log --graph --oneline --decorate
-	diffs = diff --staged
+
+	# util
 	update-date = !git commit --amend --date=\"$(date -R)\"
 	unpushed = !GIT_CURRENT_BRANCH=$(git name-rev --name-only HEAD) && git log origin/$GIT_CURRENT_BRANCH..$GIT_CURRENT_BRANCH --oneline
 	up = "!git push -u origin $(git rev-parse --abbrev-ref HEAD)"
+	base = merge-base HEAD HEAD@{u}
+
+	# rebase short forms
+	ri = rebase -i
+	rc = rebase --continue
+	ws = rebase --whitespace=fix
+
+	# cherry-pick short forms
+	ch = cherry-pick
+	cc = cherry-pick --continue
+	ca = cherry-pick --abort
+
+	# things that I struggle to remember
+	root = rev-parse --show-toplevel
+	diffs = diff --staged
 [merge]
 	conflictstyle = diff3
 [core]
