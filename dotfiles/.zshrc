@@ -235,14 +235,14 @@ man() {
 	command man "$@"
 }
 
-alias clip-copy="xsel -b -i"
-alias clip-paste="xsel -b -o"
-
 # Make BSDs feel more comfortable
 kernel_name="$(uname)"
 if [ "$kernel_name" = Darwin ]
 then
 	alias grep="grep --color=auto"
+	alias clip-copy="pbcopy"
+	alias clip-paste="pbpaste"
+	alias xdg-open="open"
 	alias ls="gls --color"
 	export MAKEFLAGS=-j$(($(sysctl -n hw.physicalcpu) + 1))
 	# in case that doesn't work:
@@ -251,6 +251,8 @@ then
 	alias nproc="sysctl -n hw.physicalcpu"
 elif [ "$kernel_name" = OpenBSD ]
 then
+	alias clip-copy="xsel -b -i"
+	alias clip-paste="xsel -b -o"
 	sudo () {
 	        if [ "$1" == "-i" ]
         	then
@@ -269,6 +271,8 @@ then
 	alias brew=brew.sh
 else
 	alias grep="grep --color=auto"
+	alias clip-copy="xsel -b -i"
+	alias clip-paste="xsel -b -o"
 	alias ls="ls --color"
 	export MAKEFLAGS=-j$(($(nproc) + 1))
 	# in case that doesn't work:
