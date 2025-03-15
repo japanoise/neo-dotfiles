@@ -136,6 +136,14 @@ fi
 autoload -U promptinit; promptinit
 PS2="%{$fg[yellow]%}%_ %{%B$fg[blue]%b%}>%{$reset_color%}"
 
+# Having a UTF-8 prompt symbol is more trouble than it's worth.
+PURE_PROMPT_SYMBOL='>'
+if [ "$UID" = 0 ]
+then
+	PURE_PROMPT_SYMBOL='#'
+fi
+PURE_PROMPT_VICMD_SYMBOL='<'
+
 # Terminals that only support 8 colors (and, usually, no unicode)
 if [ "$(echotc Co)" = 8 ]
 then
@@ -143,8 +151,6 @@ then
 	# with the default color.
 	zle_highlight=(fg_default_code:"2m\e[39"; fg_start_code:"\e[9")
 	# ascii prompt(s)
-	PURE_PROMPT_SYMBOL='>'
-	PURE_PROMPT_VICMD_SYMBOL='<'
 	PURE_GIT_DOWN_ARROW='v'
 	PURE_GIT_UP_ARROW='^'
 	# IT'S PINK!
