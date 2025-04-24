@@ -419,6 +419,15 @@ md5nam() {
 	done
 }
 
+ag_and() {
+	# pattern1 AND pattern2
+	# https://stackoverflow.com/a/50403922
+	pattern1="$1"
+	pattern2="$2"
+
+	ag -0 -l "${pattern1}" | xargs -0 ag -0 -l "${pattern2}" | xargs -0 ag "${pattern1}|${pattern2}"
+}
+
 # gomacs doesn't support the +ln syntax, so simplify LESSEDIT
 export LESSEDIT="%E %f"
 
