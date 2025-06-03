@@ -12,7 +12,42 @@ usage() {
     emsg "default     - \`wget --recursive --no-parent -e robots=off\`"
     emsg "hostile     - \`wget --recursive --no-parent -e robots=off --user-agent=\"\$(useragent.sh)\"\`"
     emsg "dumplinks   - \`lynx -dump -listonly\`"
+    emsg "filterlinks - [url] [sed expression] - show links matching regex"
+    emsg "grablinks   - [url] [sed expression] - download links matching regex"
     emsg "usage, help - display this message"
+}
+
+dumplinks() {
+    lynx -dump -listonly "$@"
+}
+
+sed_printcmd() {
+    startswith=$(echo "$1" | sed -e 's/^\(.\).*/\1/')
+    endswith=$(echo "$1" | sed -e 's/.*\(.\)$/\1/')
+
+    if [ "$startswith" = "/" ]
+    then
+        if [ "$endswith" = "/" ]
+        then
+            echo "$1"p
+            return 0
+        elif [ "$endswith" = "p" ]
+        then
+            echo "$1"
+            return 0
+        else
+            echo "malformed regex/sed print command" >&2
+            exit 1
+        fi
+    else
+        echo /"$1"/p
+    fi
+}
+
+filterlinks() {
+    dumplinks "$1" | \
+            sed -n -e "$(sed_printcmd "$2")" | \
+            sed -e 's/^  [0-9]*\. //'
 }
 
 case "$1" in
@@ -24,7 +59,16 @@ case "$1" in
         wget --recursive --no-parent -e robots=off --user-agent="$(useragent.sh)" "$@";;
     dumplinks )
         shift
-        lynx -dump -listonly "$@";;
+        dumplinks "$@"
+        ;;
+    filterlinks )
+        shift
+        filterlinks "$1" "$2"
+        ;;
+    grablinks )
+        shift
+        filterlinks "$1" "$2" | xargs wget
+        ;;
     usage )
         usage;;
     help )
