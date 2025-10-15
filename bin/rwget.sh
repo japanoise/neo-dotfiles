@@ -9,8 +9,8 @@ usage() {
     emsg "usage: $0 command [url]"
     emsg ""
     emsg "Supported commands:"
-    emsg "default     - \`wget --recursive --no-parent -e robots=off\`"
-    emsg "hostile     - \`wget --recursive --no-parent -e robots=off --user-agent=\"\$(useragent.sh)\"\`"
+    emsg "default     - \`wget --recursive --no-parent -e robots=off -k\`"
+    emsg "hostile     - \`wget --recursive --no-parent -e robots=off -k --user-agent=\"\$(useragent.sh)\"\`"
     emsg "dumplinks   - \`lynx -dump -listonly\`"
     emsg "filterlinks - [url] [sed expression] - show links matching regex"
     emsg "grablinks   - [url] [sed expression] - download links matching regex"
@@ -53,10 +53,10 @@ filterlinks() {
 case "$1" in
     default )
         shift
-        wget --recursive --no-parent -e robots=off "$@";;
+        wget --recursive --no-parent -e robots=off -k "$@";;
     hostile )
         shift
-        wget --recursive --no-parent -e robots=off --user-agent="$(useragent.sh)" "$@";;
+        wget --recursive --no-parent -e robots=off -k --user-agent="$(useragent.sh)" "$@";;
     dumplinks )
         shift
         dumplinks "$@"
