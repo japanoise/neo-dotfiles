@@ -428,6 +428,23 @@ ag_and() {
 	ag -0 -l "${pattern1}" | xargs -0 ag -0 -l "${pattern2}" | xargs -0 ag "${pattern1}|${pattern2}"
 }
 
+# go to root directory - DWIM for top-levels
+gr_dir() {
+	if git rev-parse --show-toplevel >/dev/null 2>&1
+	then
+		# We're in a git directory; we want to go to the root of it
+		git rev-parse --show-toplevel
+	elif [[ "$PWD" =~ "^$HOME" ]]
+	then
+		# We're in our home directory; we want to go to ~
+		echo "$HOME"
+	else
+		# We're spelunking somewhere; we want to go to /
+		echo "/"
+	fi
+}
+alias gr='cd "$(gr_dir)"'
+
 # gomacs doesn't support the +ln syntax, so simplify LESSEDIT
 export LESSEDIT="%E %f"
 
