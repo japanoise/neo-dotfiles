@@ -47,7 +47,7 @@ sed_printcmd() {
 filterlinks() {
     dumplinks "$1" | \
             sed -n -e "$(sed_printcmd "$2")" | \
-            sed -e 's/^  [0-9]*\. //'
+            sed -e 's/^  *[0-9]*\. //'
 }
 
 case "$1" in
