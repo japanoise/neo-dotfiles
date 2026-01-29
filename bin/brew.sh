@@ -175,18 +175,22 @@ getDistro() {
     then
         distro="openbsd"
     else
-        for dst in debian redhat arch
+        for dst in debian redhat arch artix
         do
             grep -iq "$dst" /etc/*release && distro="$dst" && return
         done
     fi
 }
 getDistro
+if [ "$distro" = "artix" ]
+then
+	distro=arch
+fi
 
 if [ "$distro" = "unknown" ]
 then
     emsg "Unsupported distro. This script currently supports:"
-    emsg "arch, msys2, openbsd, debian family, redhat family, and portage-based distros"
+    emsg "arch/artix, msys2, openbsd, debian family, redhat family, and portage-based distros"
     exit 1
 else
     emsg "Detected distro (or family) $distro"
