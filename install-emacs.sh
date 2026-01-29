@@ -9,7 +9,11 @@ do
 done
 
 echo "go-mode dependencies..."
-go get -u -v github.com/nsf/gocode github.com/godoctor/godoctor golang.org/x/tools/cmd/goimports github.com/rogpeppe/godef golang.org/x/tools/cmd/gorename
+go install github.com/rogpeppe/godef@latest
+go install golang.org/x/tools/cmd/goimports@latest
+go install golang.org/x/tools/cmd/gorename@latest
+go install golang.org/x/tools/gopls@latest
+go install github.com/nsf/gocode@latest
 
 echo "cloning dotemacs..."
 git clone ssh://git@github.com/japanoise/neo-dotemacs "$HOME"/.emacs.d
