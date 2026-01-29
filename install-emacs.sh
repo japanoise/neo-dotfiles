@@ -56,7 +56,7 @@ elif file "$(which init)" | grep -q openrc
 then
     echo "installing openrc user script..."
     mkdir -pv "$configDir"/rc/init.d/
-    cat > "$configDir"/rc/init.d/emacsd <<EOF
+    cat > "$configDir"/rc/init.d/emacsd <<'EOF'
 #!/sbin/openrc-run
 
 name=$RC_SVCNAME
