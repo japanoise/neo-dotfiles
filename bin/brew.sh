@@ -11,6 +11,7 @@ usage() {
     emsg "Supported commands:"
     emsg "install     - install the specified packages"
     emsg "uninstall   - uninstall the specified packages"
+    emsg "cleanup     - cleanup stale package archives/cache/etc"
     emsg "libinstall  - install the specified packages, with hacks to get libraries"
     emsg "listfiles   - list files installed by the packages"
     emsg "search      - search for the packages"
@@ -132,6 +133,23 @@ doSearch() {
     esac
 }
 
+doCleanup() {
+    case "$distro" in
+        openbsd )
+            emsg "No native package cleanup command";;
+        debian )
+            sudo apt clean;;
+        redhat )
+            sudo yum clean packages;;
+        gentoo )
+            sudo eclean packages && sudo eclean distfiles;;
+        arch )
+            sudo paccache -rk 1;;
+        msys2 )
+            paccache -r;;
+    esac
+}
+
 doUpdate() {
     case "$distro" in
         openbsd )
@@ -213,9 +231,12 @@ case "$1" in
     update )
         shift
         doUpdate "$@";;
-    uninstall)
+    uninstall )
         shift
         doUninstall "$@";;
+    cleanup )
+        shift
+        doCleanup "$@";;
     usage )
         usage;;
     help )
